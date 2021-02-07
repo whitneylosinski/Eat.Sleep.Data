@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # **Eat.Sleep.Data - Predicting Airbnb Prices in Nashville** 
 
  
@@ -47,11 +47,4 @@ Neighborhood within chosen city
 
 Month 
 
- 
-=======
-# Eat.Sleep.Data
-A machine learning analysis for predicting Airbnb price based on location, amenities, size, season, etc.
-<<<<<<< HEAD
->>>>>>> 686f58631112acfa80137e80349726c0877bfbf6
-=======
->>>>>>> 686f58631112acfa80137e80349726c0877bfbf6
+
