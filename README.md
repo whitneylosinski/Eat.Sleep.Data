@@ -1,5 +1,4 @@
 
-=======
 
 # **Eat.Sleep.Data - Predicting Airbnb Prices in Nashville** 
 
@@ -48,4 +47,10 @@ Number of Bathrooms
 Neighborhood within chosen city 
 
 Month 
+
+=======
+# Eat.Sleep.Data
+A machine learning analysis for predicting Airbnb price based on location, amenities, size, season, etc.
+
+Test change Alex F
 
