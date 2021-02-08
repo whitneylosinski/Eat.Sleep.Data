@@ -18,7 +18,7 @@ Although Airbnb provides hosts with general guidelines when listing a property, 
 Because the Airbnb website no longer allows users to apply for access to their API for collecing data, the team researched several other potential data sources for the project and found that the following sites offer the data the team needs for this project. 
  
 1. Inside Airbnb: http://insideairbnb.com/get-the-data.html </br>
-   Includes over 7,000 Airbnb listings for 2019 in the Nashville, TN area with more than [est. number of columns] features for each listing.  The dataset includes features such as listing type, location, neighborhood, number of bedrooms, maximum occupency, amenities, availability, host response time, reviews, etc.  More current listings, as recent as 2021, are available as well but the team has decided to use 2019 data, as it has not been impacted by travel trends due to COVID-19.
+   Includes over 7,000 Airbnb listings for 2019 in the Nashville, TN area with more 74 features for each listing.  The dataset includes variables such as listing type, location, neighborhood, number of bedrooms, maximum occupency, amenities, availability, host response time, and reviews.  More current listings, as recent as 2021, are available as well but the team has decided to use 2019 data, as it has not been impacted by travel trends due to COVID-19.
    
 2. Tourism trends: 
 
@@ -33,7 +33,7 @@ Because the Airbnb website no longer allows users to apply for access to their A
    This website has all the Nashville attractions by neighborhood.  Using this will require webscraping.
    
    
-There were also several other data resources found by the team that were not chosen for various reasons as detailed below.
+There are also several other data resources found by the team that were not chosen for various reasons as detailed below.
 
 1. Kaggle US Airbnb Open Dataset: https://www.kaggle.com/kritikseth/us-airbnb-open-data </br>
    Contained over 218,000 listings from Airbnb in 2020 with 17 features for each listing including host information, location, room type, price, minimum number of nights, reviews, availability and city.  This dataset was rejected due to the very limited information on amenities and other features.
