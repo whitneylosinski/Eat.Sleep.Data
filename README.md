@@ -1,3 +1,4 @@
+
 # **Eat.Sleep.Data - Predicting Airbnb Prices in Nashville** 
 <hr>
 
@@ -9,7 +10,7 @@ The purpose of this project is to analyze historical Airbnb data with machine le
 
 ## **Project Background** 
 
-Airbnb is a popular internet marketplace for short term room, home and apartment rentals. It allows ordinary people who own properties to list their empty spaces for rent and provides a one stop marketplace for renters who are looking for their perfect short term home.  The site provides a great selection of listings that can be filtered by locations, price, size, amenities and more so that renters can narrow down their search to their exact needs.
+Airbnb is a popular internet marketplace for short term room, home and apartment rentals. It allows ordinary people who own properties to list their empty spaces for rent and provides a one stop marketplace for renters who are looking for their perfect short term home.  The site provides a great selection of listings that can be filtered by location, price, size, amenities and more so that renters can narrow down their search to their exact needs.
 
 Although Airbnb provides hosts with general guidelines when listing a property, the site does not provide an easy way for hosts to determine the optimal price of their rental space to ensure they are making maximum profits while also not overcharging or driving renters away from their listing.  There are many current options that allow hosts to determine their optimal rental price but most of them are through third-party websites who charge a hefty price for their resources.  
 
@@ -53,9 +54,11 @@ Our initial technology plan includes the following:
 3.  Visualization with Matplotlib
 4.  Statistical evaluation with additional visualizations in R
 5.  Web app created using Javascript and deployed on Heroku
+6.  Map visualizations using MapBox API and OpenStreetMap
 
 ### Communication
  
 Our team will be using Discord for messaging with team meetings on Zoom.  We will be doing our programming and collaborative work via Github.  
+
 
 
