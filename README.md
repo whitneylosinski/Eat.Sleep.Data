@@ -45,7 +45,7 @@ There are also several other data resources found by the team that were not chos
    Weather was considered as an additional impact on the optimal price but the team decided to look at tourism trends rather than weather for the model.
    
 
-### TECHNOLOGY
+### Technology
 
 Our initial technology plan includes the following:
 1.  Database created with Postgres hosted on Heroku
@@ -54,7 +54,7 @@ Our initial technology plan includes the following:
 4.  Statistical evaluation with additional visualizations in R
 5.  Web app created using Javascript and deployed on Heroku
 
-### COMMUNICATION
+### Communication
  
 Our team will be using Discord for messaging with team meetings on Zoom.  We will be doing our programming and collaborative work via Github.  
 
