@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 
-
-=======
->>>>>>> main
 # **Eat.Sleep.Data - Predicting Airbnb Prices in Nashville** 
 <hr>
 
