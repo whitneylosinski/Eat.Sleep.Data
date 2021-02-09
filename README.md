@@ -23,8 +23,8 @@ Because the Airbnb website no longer allows users to apply for access to their A
    
 2. Tourism trends: 
 
-*  https://data.tn.gov/api/action/datastore_search  
-   This data includes tourism related tax receipts by county.  There is a date stamp that we can use to determine seasonality.
+*  https://data.tn.gov/dataset?organization=department-of-tourist-development
+   This data includes tourism related tax receipts by county.  There is a date stamp that we can use to determine seasonality.  There is also an api available. 
    
 *  https://www.songkick.com/developer/upcoming-events-for-metro-area 
    This data source includes a calendar of upcoming music events.
