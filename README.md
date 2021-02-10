@@ -55,6 +55,7 @@ Our initial technology plan includes the following:
 4.  Statistical evaluation with additional visualizations in R
 5.  Web app created using Javascript and deployed on Heroku
 6.  Map visualizations using MapBox API and OpenStreetMap
+7.  Google maps geocoding to translate street address to longitude/latitude
 
 ### Communication
  
