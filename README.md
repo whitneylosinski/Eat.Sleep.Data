@@ -58,9 +58,5 @@ Our initial technology plan includes the following:
 
 ### Communication
  
-Our team will be using Discord for messaging with team meetings on Zoom.  We will be doing our programming and collaborative work via Github.  
-
-
-<a href= "https://trello.com/eatsleepdata">trello link<a>
-
+Our team will be using Discord for messaging with team meetings on Zoom.  We will also be organizing tasks with the popular <a href= "https://trello.com/eatsleepdata">trello.com</a> website as well as housing our programming and collaborative work via Github.
 
