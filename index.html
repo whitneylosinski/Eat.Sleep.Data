@@ -42,23 +42,125 @@
     <div class="row">
       <p style="font-size: 22px; font-weight: bold;"><u>Listing Details</u></p>
         <div class="col-md-4" style="padding: 20px; border-radius: 10px; border: 2px solid rgb(34, 136, 184)">
-          <label for="adress">Enter Address:</label>
-          <input type="text" placeholder="123 Broadway, Nashville, TN" id="adress" />
-        <div class="row"></div>
-          <label for="date">Date:</label>
-          <input type="text" placeholder="01/01/2021" id="datetime" />
-        <div class="row"></div>          
-          <label for="listing_type">Listing Type:</label>
-          <!-- <select id="selDataset"></select> -->
-          <select id="selDataset"; onchange="optionChanged(this.value)"></select>
-        <div class="row"></div>
-          <label for="number_of_rooms">Number of Rooms:</label>
-          <!-- <select id="selDataset"></select> -->
-          <select id="selDataset"; onchange="optionChanged(this.value)"></select>
-        <div class="row"></div>
-          <label for="maximum_occupancy">Maximum Occupancy:</label>
-          <!-- <select id="selDataset"></select> -->
-          <select id="selDataset"; onchange="optionChanged(this.value)"></select>
+          <div class="row">
+            <label for="adress">Enter Address:</label>
+            <input type="text" placeholder="123 Broadway, Nashville, TN" id="adress" style="width: 250px;"/>
+          </div>
+          <div class="row">
+            <label for="date">Date:</label>
+            <input type="text" placeholder="01/01/2021" id="datetime" />
+          </div>
+          <div class="row">         
+            <label for="listing_type">Property Type:</label>
+            <!-- <select id="selDataset"></select> -->
+            <select id="selDataset"; onchange="optionChanged(this.value)"></select>
+          </div> 
+          <div class="row">
+            <label for="room_type">Rooms Type:</label>
+            <!-- <select id="selDataset"></select> -->
+            <select id="selDataset"; onchange="optionChanged(this.value)"></select>
+          </div>
+          <div class="row">
+            <label for="number_of_bedrooms">Number of Bedrooms:</label>
+            <!-- <select id="selDataset"></select> -->
+            <select id="selDataset"; onchange="optionChanged(this.value)"></select>
+          </div>
+          <div class="row">
+            <label for="number_of_beds">Number of Beds:</label>
+            <!-- <select id="selDataset"></select> -->
+            <select id="selDataset"; onchange="optionChanged(this.value)"></select>
+          </div>
+          <div class="row">
+            <label for="number_of_bathrooms">Number of Bathrooms:</label>
+            <!-- <select id="selDataset"></select> -->
+            <select id="selDataset"; onchange="optionChanged(this.value)"></select>
+          </div>
+          <div class="row">
+            <label for="maximum_occupancy">Maximum Occupancy:</label>
+            <!-- <select id="selDataset"></select> -->
+            <select id="selDataset"; onchange="optionChanged(this.value)"></select>
+          </div>
+          <div class="row">
+            <label for="amenities">Amenities:</label>
+          <div container="col-md-4">
+            <div class="col-md-6">
+              <input type="checkbox" id="TV" name="TV" value="Yes">
+              <lable for="TV">TV</lable></br>
+              <input type="checkbox" id="Cable_TV" name="Cable_TV" value="Yes">
+              <lable for="Cable_TV">Cable TV</lable></br>
+              <input type="checkbox" id="Internet" name="Internet" value="Yes">
+              <lable for="Internet">Internet</lable></br>
+              <input type="checkbox" id="Wifi" name="Wifi" value="Yes">
+              <lable for="Wifi">Wifi</lable></br>
+              <input type="checkbox" id="AirConditioning" name="AirConditioning" value="Yes">
+              <lable for="AirConditioning">Air Conditioning</lable></br>
+              <input type="checkbox" id="Heating" name="Heating" value="Yes">
+              <lable for="Heating">Heating</lable></br>
+              <input type="checkbox" id="Pool" name="Pool" value="Yes">
+              <lable for="Pool">Pool</lable></br>
+              <input type="checkbox" id="Kitchen" name="Kitchen" value="Yes">
+              <lable for="Kitchen">Kitchen</lable></br>
+              <input type="checkbox" id="Microwave" name="Microwave" value="Yes">
+              <lable for="Microwave">Microwave</lable></br>
+              <input type="checkbox" id="Refrigerator" name="Refrigerator" value="Yes">
+              <lable for="Refrigerator">Refrigerator</lable></br>
+              <input type="checkbox" id="Dishwasher" name="Dishwasher" value="Yes">
+              <lable for="Dishwasher">Dishwasher</lable></br>
+              <input type="checkbox" id="Oven" name="Oven" value="Yes">
+              <lable for="Oven">Oven</lable></br>
+              <input type="checkbox" id="Stove" name="Stove" value="Yes">
+              <lable for="Stove">Stove</lable></br>
+              <input type="checkbox" id="Coffee_Maker" name="Coffee_Maker" value="Yes">
+              <lable for="Coffee_Maker">Coffee Maker</lable></br>
+              <input type="checkbox" id="Free_parking" name="Free_parking" value="Yes">
+              <lable for="Free_parking">Free Parking</lable></br>
+              <input type="checkbox" id="Washer" name="Washer" value="Yes">
+              <lable for="Washer">Washer</lable></br>
+              <input type="checkbox" id="Dryer" name="Dryer" value="Yes">
+              <lable for="Dryer">Dryer</lable></br>
+              <input type="checkbox" id="Indoor_Fireplace" name="Indoor_Fireplace" value="Yes">
+              <lable for="Indoor_Fireplace">Indoor Fireplace</lable></br>
+              <input type="checkbox" id="Hot_Tub" name="Hot_Tub" value="Yes">
+              <lable for="Hot_Tub">Hot Tub</lable></br>
+            </div>
+            <div class="col-md-6">
+              <input type="checkbox" id="Bed_linens" name="Bed_linens" value="Yes">
+              <lable for="Bed_linens">Bed Linens</lable></br>
+              <input type="checkbox" id="Extra_Pillows/Blankets" name="Extra_Pillows/Blankets" value="Yes">
+              <lable for="Extra_Pillows/Blankets">Extra Pillows/Blankets</lable></br>
+              <input type="checkbox" id="Shampoo" name="Shampoo" value="Yes">
+              <lable for="Shampoo">Shampoo</lable></br>
+              <input type="checkbox" id="Hangers" name="Hangers" value="Yes">              
+              <lable for="Hangers">Hangers</lable></br>
+              <input type="checkbox" id="Hair_Dryer" name="Hair_Dryer" value="Yes">
+              <lable for="Hair_Dryer">Hair Dryer</lable></br>
+              <input type="checkbox" id="Extra_Pillows/Blankets" name="Extra_Pillows/Blankets" value="Yes">
+              <lable for="Extra_Pillows/Blankets">Extra Pillows/Blankets</lable></br>
+              <input type="checkbox" id="Hair_Dryer" name="Hair_Dryer" value="Yes">
+              <lable for="Hair_Dryer">Hair Dryer</lable></br>
+              <input type="checkbox" id="Iron" name="Iron" value="Yes">
+              <lable for="Iron">Iron</lable></br>
+              <input type="checkbox" id="Extra_Pillows/Blankets" name="Extra_Pillows/Blankets" value="Yes">
+              <lable for="Extra_Pillows/Blankets">Extra Pillows/Blankets</lable></br>
+              <input type="checkbox" id="Pets_live_on_this_property" name="Pets_live_on_this_property" value="Yes">
+              <lable for="Pets_live_on_this_property">Pets Live on this Property</lable></br>
+              <input type="checkbox" id="Dog_Friendly" name="Dog_Friendly" value="Yes">
+              <lable for="Dog_Friendly">Dog Friendly</lable></br>
+              <input type="checkbox" id="Cat_Friendly" name="Cat_Friendly" value="Yes">
+              <lable for="Cat_Friendly">Cat Friendly</lable></br>
+              <input type="checkbox" id="Family/kid_Friendly" name="Family/kid_Friendly" value="Yes">
+              <lable for="Family/kid_Friendly">Family/Kid Friendly</lable></br>
+              <input type="checkbox" id="Event_Friendly" name="Event_Friendly" value="Yes">
+              <lable for="Event_Friendly">Event Friendly</lable></br>
+              <input type="checkbox" id="Smoke_Detector" name="Smoke_Detector" value="Yes">
+              <lable for="Smoke_Detector">Smoke Detector</lable></br>
+              <input type="checkbox" id="CO_Detector" name="CO_Detector" value="Yes">
+              <lable for="CO_Detector">Carbon Monoxide Detector</lable></br>
+              <input type="checkbox" id="Fire_Extinguisher" name="Fire_Extinguisher" value="Yes">
+              <lable for="Fire_Extinguisher">Fire Extinguisher</lable></br>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
