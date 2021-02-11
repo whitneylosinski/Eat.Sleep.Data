@@ -38,6 +38,34 @@
       </div>
     </div>
   </div>
+  <div class="container" >
+    <div class="row">
+      <p style="font-size: 22px; font-weight: bold;"><u>Listing Details</u></p>
+        <div class="col-md-4" style="padding: 20px; border-radius: 10px; border: 2px solid rgb(34, 136, 184)">
+          <label for="adress">Enter Address:</label>
+          <input type="text" placeholder="123 Broadway, Nashville, TN" id="adress" />
+        <div class="row"></div>
+          <label for="date">Date:</label>
+          <input type="text" placeholder="01/01/2021" id="datetime" />
+        <div class="row"></div>          
+          <label for="listing_type">Listing Type:</label>
+          <!-- <select id="selDataset"></select> -->
+          <select id="selDataset"; onchange="optionChanged(this.value)"></select>
+        <div class="row"></div>
+          <label for="number_of_rooms">Number of Rooms:</label>
+          <!-- <select id="selDataset"></select> -->
+          <select id="selDataset"; onchange="optionChanged(this.value)"></select>
+        <div class="row"></div>
+          <label for="maximum_occupancy">Maximum Occupancy:</label>
+          <!-- <select id="selDataset"></select> -->
+          <select id="selDataset"; onchange="optionChanged(this.value)"></select>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
