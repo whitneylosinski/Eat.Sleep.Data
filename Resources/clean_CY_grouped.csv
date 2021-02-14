@@ -1,4 +1,4 @@
-listing_id,day,month,price
+id,day,month,price
 6422,weekday,1,40.0
 6422,weekday,2,40.0
 6422,weekday,3,40.0
