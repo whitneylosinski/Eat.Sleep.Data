@@ -26,3 +26,7 @@ def predict():
     results = pd.DataFrame(nn_imported.predict(X_test_scaled))
     html = results.to_html()
     return html
+
+def addition(input1, input2):
+    result = input1 + input2
+    return result
