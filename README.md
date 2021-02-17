@@ -13,7 +13,13 @@ The purpose of this project is to analyze historical Airbnb data with machine le
 [Project Proposal](https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Project-Proposal)
 
 
-### Communication
+### Communication Protocols
  
-Our team will be using Discord for messaging with team meetings on Zoom.  We will also be organizing tasks with the popular <a href= "https://trello.com/eatsleepdata">trello.com</a> website as well as housing our programming and collaborative work via Github.
+Our team is using Discord for messaging.  Our discord board includes a "general" tab for informational messages, a "data-discovery" tab for information on datasets, and "important_and_useful_links" for the links to the sourced database, the Postgres database, the web app and any other important links.  We also have the ever important "off-topic" tab for general socializing. 
+
+We are holding team meetings on Zoom which consists of both scheduled and impromptu meetings set up through our Discord channel.   
+
+We are organizing and documenting tasks on a Trello board.<a href= "https://trello.com/eatsleepdata">trello.com</a> 
+
+Our programming and collaborative work is being done via Github.
 
