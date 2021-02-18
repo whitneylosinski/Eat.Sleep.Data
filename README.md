@@ -39,7 +39,7 @@ Our team is using Discord for messaging.  Our discord board includes a "general"
 
 We are holding team meetings on Zoom which consists of both scheduled and impromptu meetings set up through our Discord channel.   
 
-We are organizing and documenting tasks on a Trello board.<a href= "https://trello.com/eatsleepdata">trello.com</a> 
+We are organizing and documenting tasks on a Trello board.  Our board can be viewed <a href= "https://trello.com/eatsleepdata">here.</a> 
 
 Our programming and collaborative work is being done via Github.
 
