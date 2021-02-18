@@ -26,9 +26,9 @@ Looking at the wide variety of data available, the team is interested in explori
 *  Time of year or day of week
 *  etc.
 
-### Data Exploration
-Click the following link to see a detailed description of both the datasets we are using and the datasets we explored but ultimately chose not to use for this project.
-- <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Data-Exploration">Data Exploration</a>
+### Description of Data Source
+Click the following link to see a detailed description of the data sources being using for the project.  Additional information about our data exploration can be found in the project proposal above.
+- <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Data-Sources">Data Exploration</a>
 
 ### Communication Protocols
 Our team is using the following mediums for communication purposes:
