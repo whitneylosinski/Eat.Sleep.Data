@@ -28,7 +28,7 @@ Looking at the wide variety of data available, the team is interested in explori
 
 ### Description of Data Source
 Click the following link to see a detailed description of the data sources being using for the project.  Additional information about our data exploration can be found in the project proposal above.
-- <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Data-Sources">Data Exploration</a>
+- <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Data-Sources">Data Source</a>
 
 ### Communication Protocols
 Our team is using the following mediums for communication purposes:
