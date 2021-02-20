@@ -24,17 +24,24 @@ def get_model_info():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    my_input1 = request.form['input1']
-    my_input2 = request.form['input2']
-    input1 = int(my_input1)
-    input2 = int(my_input2)
-    result = airbnb_price_predict.addition(input1, input2)
-    return render_template(
-        "index.html",
-        input1=my_input1,
-        input2=my_input2,
-        result=result
-    )
+    # my_input1 = request.form['input1']
+    # my_input2 = request.form['input2']
+    # input1 = int(my_input1)
+    # input2 = int(my_input2)
+    address = request.form['address']
+    neighborhood = request.form['neighborhood']
+    property_type = request.form['selPropertyType']
+    room_type = request.form['selRoomType']
+    bedrooms = request.form['selBedrooms']
+    beds = request.form['selBeds']
+    baths = request.form['selBaths']
+    # result = airbnb_price_predict.addition(input1, input2)
+    result = airbnb_price_predict.summarize_inputs(address, neighborhood, property_type, room_type, bedrooms, beds, baths)
+    return result
+    # return render_template(
+    #     "index.html",
+    #     result=result
+    # )
 
 if __name__ == "__main__":
     app.run()
