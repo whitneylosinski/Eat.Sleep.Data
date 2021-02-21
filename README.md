@@ -48,7 +48,7 @@ Since our data set has a large number of input variables, the RF model should be
 
 A link to our preliminary model is here:
 
-- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model_Random_Forest_Regressor%20copy.ipynb)">Random_Forest_Model</a>
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model_Random_Forest_Regressor.ipynb)">Random_Forest_Model</a>
 
 As a result of the preliminary random forest regression investigation, our model produced an r-squared value of 95%.  However, we will next explore the use of an accuracy score metric using either mean squared error or mean absolute error with the random forest regressor.
 For more indepth discussion of the MLMs, click on this link:
