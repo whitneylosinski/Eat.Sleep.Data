@@ -33,7 +33,7 @@ Click the following link to see a detailed description of the data sources being
 ### Preliminary Machine Learning Model
 Our first pass at an MLM uses a linearRegressor model with multiple variables thus becoming  a multiple regression.  A description and link to this model can be found here:
 
-![]()
+![MLR Model](https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model.ipynb)
 
 Because the initial model came in with an R2 score of .57 which is not high enough, we ran a multi-collinearity matrix and found there are numerous variables with significant collinearity.  We have begun the process of re-examining the input variables to correct for this.
 
@@ -49,7 +49,7 @@ Since our data set has a large number of input variables, the RF model should be
 
 A link to our preliminary model is here:
 
-![]()
+![RF Model](https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model_Random_Forest_Regressor%20copy.ipynb)
 
 For more indepth discussion of the MLMs, click on this link:
 
