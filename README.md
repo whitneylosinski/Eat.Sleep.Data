@@ -53,7 +53,7 @@ A link to our preliminary model is here:
 As a result of the preliminary random forest regression investigation, our model produced an r-squared value of 95%.  However, we will next explore the use of an accuracy score metric using either mean squared error or mean absolute error with the random forest regressor.
 For more indepth discussion of the MLMs, click on this link:
 
-- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development)">MLM_wiki_link</a>
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development">MLM_wiki_link</a>
 
 #### Connection of draft model to Postgres Database:
 
