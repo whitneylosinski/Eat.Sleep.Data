@@ -35,33 +35,34 @@ Our first pass at an MLM uses a linearRegressor model with multiple variables th
 
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model.ipynb">MLR Model</a>
 
-Output label for input data (screenshot of predicted "y"):
+Output label for input data (screenshot of predicted "y") for the MLR model can be viewed as follows:
 
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/PNGs/baseline_MLR_predicted_y.png">Preliminary MLR predicted "y"</a>
 
-Because the initial model came in with an R2 score of 0.57 which is not high enough, we ran a multi-collinearity matrix and found there are numerous variables with significantly high collinearity.  We have begun the process of re-examining the input variables to correct for this.
+This initial model produced an R-squared value 0.57, which is not high enough for predictive reliability.  Thus, we ran a multi-collinearity matrix and found there are numerous variables with significantly high collinearity.  Using the matrix, we began the process of re-examining the input variables for proper feature selection.
 
-In addition, we are trying a Random Forest Regressor model because this type of model offers the following advantages:
+In addition, we are trying an additional preliminary Random Forest Regressor model because this type of model offers the following advantages:
 
 *  Can be used to rank the importance of input variables in a natural way.
 *  Can handle thousands of input variables without variable deletion.
 *  Is robust to outliers and nonlinear data.
-*  Run efficiently on large datasets
+*  Runs efficiently on large datasets
 
 Since our data set has a large number of input variables, the RF model should be able to better separate the predictors from the non-predictors.  
 
-A link to our preliminary model is here:
+A link to this preliminary Random Forest Regressor model is viewable here:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Baseline_Model_Testing/Baseline_Model_Testing_files/Baseline_Random_Forest_Regressor.ipynb">Random Forest Model</a>
 
-As a result of the preliminary random forest regression investigation, our model produced an r-squared value of 95%.  However, we will next explore the use of an accuracy score metric using either mean squared error or mean absolute error with the random forest regressor.
-For more indepth discussion of the MLMs, click on this link:
+As a result of the preliminary random forest regression investigation, our model produced an r-squared value of 95%.  This R-squared value is suspciously high.  However, the next step will be to obtain an accuracy score. Hence, the next step is to use either mean squared error or mean absolute error with the random forest regressor to determine predictive accuracy.
+
+For more indepth discussion of the MLMs, follow this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development">MLM_wiki_link</a>
 
 #### Connection of draft model to Postgres Database:
 
-Both the draft models were successfully linked to the Heroku postgres database as shown in the following link's image:
+Both the draft models were successfully linked to the Heroku postgres database as exhibited in the following link's image:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Database">Postgres Database Example</a>
 
