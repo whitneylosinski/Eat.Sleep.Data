@@ -51,6 +51,9 @@ A link to our preliminary model is here:
 
 ![]()
 
+For more indepth discussion of the MLMs, click on this link:
+
+![MLM Wiki page](https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development)
 
 ### Communication Protocols
 Our team is using the following mediums for communication purposes:
