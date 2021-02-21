@@ -30,6 +30,28 @@ Looking at the wide variety of data available, the team is interested in explori
 Click the following link to see a detailed description of the data sources being using for the project.  Additional information about our data exploration can be found in the project proposal above.
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/ETL">Data Source</a>
 
+### Preliminary Machine Learning Model
+Our first pass at an MLM uses a linearRegressor model with multiple variables thus becoming  a multiple regression.  A description and link to this model can be found here:
+
+![]()
+
+Because the initial model came in with an R2 score of .57 which is not high enough, we ran a multi-collinearity matrix and found there are numerous variables with significant collinearity.  We have begun the process of re-examining the input variables to correct for this.
+
+In addition, we are trying a Random Forest model because this type of model:
+
+*  Is robust against overfitting because the weak learners are trained on different pieces of the data.
+*  Can be used to rank the importance of input variables in a natural way.
+*  Can handle thousands of input variables without variable deletion.
+*  Is robust to outliers and nonlinear data.
+*  Run efficiently on large datasets
+
+Since our data set has a large number of input variables, the RF model should be able to better separate the predictors from the non-predictors.  
+
+A link to our preliminary model is here:
+
+![]()
+
+
 ### Communication Protocols
 Our team is using the following mediums for communication purposes:
  - **Discord** - for messaging and basic communication.  Our discord board includes a "general" tab for informational messages, a "data-discovery" tab for information on datasets, and "important_and_useful_links" for the links to the sourced database, the Postgres database, the web app and any other important links.  We also have the ever important "off-topic" tab for general socializing. 
