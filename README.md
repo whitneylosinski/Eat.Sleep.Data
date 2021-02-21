@@ -2,7 +2,7 @@
 # **Eat.Sleep.Data - Predicting Airbnb Prices in Nashville** 
 <hr>
 
-### Summary
+### Project Overview
 The purpose of this project is to analyze historical Airbnb data with machine learning models to predict the expected rental price of a given space based on location, size, amenities, reviews, host performance, and other relevant variables. This prediction model will be incorporated in a tool for property owners to use to determine the suggested rental price for their space. The model will incorporate seasonal trends and weekday versus weekend premiums to adjust the suggested price for the dates the space will be listed. Due to the short timeline for this project, the scope will be limited to the Nashville, TN market. 
 
 **Team members:** Alex Conerly, Alex Felice, Betsy Wellington, Hannah Koivisto, Ken Liew, Whitney Losinski
@@ -30,16 +30,15 @@ Looking at the wide variety of data available, the team is interested in explori
 Click the following link to see a detailed description of the data sources being using for the project.  Additional information about our data exploration can be found in the project proposal above.
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/ETL">Data Source</a>
 
-### Preliminary Machine Learning Model
-Our first pass at an MLM uses a linearRegressor model with multiple variables thus becoming  a multiple regression.  A description and link to this model can be found here:
+### Draft of Machine Learning Model
+Our first pass at an MLM uses a linearRegressor model with multiple variables thus becoming a multiple regression.  A description and link to this model can be found here:
 
-![MLR Model](https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model.ipynb)
+- <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model.ipynb">MLR_Model</a>
 
-Because the initial model came in with an R2 score of .57 which is not high enough, we ran a multi-collinearity matrix and found there are numerous variables with significant collinearity.  We have begun the process of re-examining the input variables to correct for this.
+Because the initial model came in with an R2 score of 0.57 which is not high enough, we ran a multi-collinearity matrix and found there are numerous variables with significantly high collinearity.  We have begun the process of re-examining the input variables to correct for this.
 
-In addition, we are trying a Random Forest model because this type of model:
+In addition, we are trying a Random Forest Regressor model because this type of model offers the following advantages:
 
-*  Is robust against overfitting because the weak learners are trained on different pieces of the data.
 *  Can be used to rank the importance of input variables in a natural way.
 *  Can handle thousands of input variables without variable deletion.
 *  Is robust to outliers and nonlinear data.
@@ -49,15 +48,25 @@ Since our data set has a large number of input variables, the RF model should be
 
 A link to our preliminary model is here:
 
-![RF Model](https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model_Random_Forest_Regressor%20copy.ipynb)
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Baseline_Model_Testing/Baseline_Model_Testing_files/Baseline_Random_Forest_Regressor.ipynb">Random_Forest_Model</a>
 
+As a result of the preliminary random forest regression investigation, our model produced an r-squared value of 95%.  However, we will next explore the use of an accuracy score metric using either mean squared error or mean absolute error with the random forest regressor.
 For more indepth discussion of the MLMs, click on this link:
 
-![MLM Wiki page](https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development)
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development)">MLM_wiki_link</a>
+
+#### Connection of draft model to Postgres Database:
+
+Both the draft models were successfully linked to the Heroku postgres database as shown in the following link's image:
+
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Database">Postgres Database Example</a>
 
 ### Communication Protocols
 Our team is using the following mediums for communication purposes:
- - **Discord** - for messaging and basic communication.  Our discord board includes a "general" tab for informational messages, a "data-discovery" tab for information on datasets, and "important_and_useful_links" for the links to the sourced database, the Postgres database, the web app and any other important links.  We also have the ever important "off-topic" tab for general socializing. 
+ - **Discord** - for messaging and basic communication.  Our discord board includes a "general" tab for informational messages, a "data-discovery" tab for information on datasets, and "important_and_useful_links" for the links to the sourced database, the Postgres database, the web app and any other important links.  We also have the ever important "off-topic" tab for general socializing.
  - **Zoom** - for team meetings and video conferencing.  Our zoom calls consist of both scheduled and impromptu meetings set up through our Discord channel.
  - **Trello** - for organizing and documenting tasks.  Our board can be viewed <a href= "https://trello.com/eatsleepdata">here.</a>
  - **Github** - for programming and collaborative work. 
+   *   Branches - team members have decided to forgo individual named branches and create topic based branches.  Any member named branches are used for their own discovery and scribbles. 
+
+
