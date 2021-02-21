@@ -9,7 +9,7 @@ The purpose of this project is to analyze historical Airbnb data with machine le
 <hr>
 
 ### Project proposal
-Click the following link to view the full project proposal. 
+Click the following link to view the full initial project proposal.  Note that the current scope of project has been changed from the initial proposal after data and technical exploration. 
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Project-Proposal">Project Proposal</a>
 
 ### Reason for selecting this topic
