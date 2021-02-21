@@ -37,7 +37,7 @@ Our first pass at an MLM uses a linearRegressor model with multiple variables th
 
 Output label for input data (screenshot of predicted "y"):
 
-- <a href= "">Preliminary MLR predicted "y"</a>
+- <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/PNGs/baseline_MLR_predicted_y.png">Preliminary MLR predicted "y"</a>
 
 Because the initial model came in with an R2 score of 0.57 which is not high enough, we ran a multi-collinearity matrix and found there are numerous variables with significantly high collinearity.  We have begun the process of re-examining the input variables to correct for this.
 
