@@ -54,7 +54,7 @@ A link to this preliminary Random Forest Regressor model is viewable here:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Baseline_Model_Testing/Baseline_Model_Testing_files/Baseline_Random_Forest_Regressor.ipynb">Random Forest Model</a>
 
-As a result of the preliminary random forest regression investigation, our model produced an r-squared value of 95%.  This R-squared value is suspciously high.  However, the next step will be to obtain an accuracy score. Hence, the next step is to use either mean squared error or mean absolute error with the random forest regressor to determine predictive accuracy.
+The result of the preliminary random forest regression investigation produces an r-squared value of 95%.  This R-squared value is suspciously high.  We will be investigating additional metrics to use to evaluate the model and make sure everything is being run properly during the next segment. 
 
 For more indepth discussion of the MLMs, follow this link:
 
@@ -62,7 +62,7 @@ For more indepth discussion of the MLMs, follow this link:
 
 #### Connection of draft model to Postgres Database:
 
-Both the draft models were successfully linked to the Heroku postgres database as exhibited in the following link's image:
+Both the draft models are linked to the Heroku postgres database and running properly as shown in the following image:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Database">Postgres Database Example</a>
 
