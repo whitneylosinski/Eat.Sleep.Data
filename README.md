@@ -35,6 +35,10 @@ Our first pass at an MLM uses a linearRegressor model with multiple variables th
 
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model.ipynb">MLR_Model</a>
 
+Output label for input data (screenshot of predicted "y"):
+
+- <a href= "">Preliminary MLR predicted "y"</a>
+
 Because the initial model came in with an R2 score of 0.57 which is not high enough, we ran a multi-collinearity matrix and found there are numerous variables with significantly high collinearity.  We have begun the process of re-examining the input variables to correct for this.
 
 In addition, we are trying a Random Forest Regressor model because this type of model offers the following advantages:
