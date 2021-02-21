@@ -33,7 +33,7 @@ Click the following link to see a detailed description of the data sources being
 ### Draft of Machine Learning Model
 Our first pass at an MLM uses a linearRegressor model with multiple variables thus becoming a multiple regression.  A description and link to this model can be found here:
 
-- <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model.ipynb">MLR_Model</a>
+- <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model.ipynb">MLR Model</a>
 
 Output label for input data (screenshot of predicted "y"):
 
@@ -52,7 +52,7 @@ Since our data set has a large number of input variables, the RF model should be
 
 A link to our preliminary model is here:
 
-- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Baseline_Model_Testing/Baseline_Model_Testing_files/Baseline_Random_Forest_Regressor.ipynb">Random_Forest_Model</a>
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Baseline_Model_Testing/Baseline_Model_Testing_files/Baseline_Random_Forest_Regressor.ipynb">Random Forest Model</a>
 
 As a result of the preliminary random forest regression investigation, our model produced an r-squared value of 95%.  However, we will next explore the use of an accuracy score metric using either mean squared error or mean absolute error with the random forest regressor.
 For more indepth discussion of the MLMs, click on this link:
