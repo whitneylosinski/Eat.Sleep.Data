@@ -62,7 +62,7 @@ For more indepth discussion of the MLMs, follow this link:
 
 ## Connection of draft model to Postgres Database:
 
-Both the draft models were successfully linked to the Heroku postgres database as exhibited in the following link's image:
+Both the draft models are linked to the Heroku postgres database and running properly as shown in the following image:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Database">Postgres Database Example</a>
 
