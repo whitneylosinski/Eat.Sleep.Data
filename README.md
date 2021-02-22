@@ -47,16 +47,15 @@ This initial model produced an R-squared value 0.57, which is not high enough fo
 *  Are robust to outliers and nonlinear data.
 *  Run efficiently on large datasets
 
-From the random forest regressor, we achieved an r-squared value from a testing set of about 0.95 which was suspiciously high. However, we ran an additional calcuation to determine the mean squared error which resulted in about 53.86.  This means that, on average, this model's price prediction was off by about $7.30.  
+From the random forest regressor, we achieved an r-squared value from a testing set of about 0.95 which was suspiciously high. However, we ran an additional calculation to determine the mean squared error which resulted in about 53.86.  This means that, on average, this model's price prediction was off by about $7.30.
 
 To view this preliminary Random Forest Regressor model, follow the link below:
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Baseline_Model_Testing/Baseline_Model_Testing_files/Baseline_Random_Forest_Regressor.ipynb">Random Forest Model</a>
 
-Additional tests are being planned, including tweaking of the hyperparameters, to further reduce predictive errors as well as minimize overfitting to machine learning models.
 
-Following these two baseline tests, the group collaborated on producing a multi-collinearity matrix which revealed numerous variables in the dataset with significantly high collinearity.  With the aid of this matrix, we began the process of re-examining the input variables to fine-tune the feature selection and reduction process.
+Following these two baseline tests, additional tests are in the planning stage, including tweaking of the hyperparameters, to further reduce predictive errors as well as minimize overfitting to the models.  Furthermore, the group collaborated on producing a multi-collinearity matrix which revealed numerous variables in the dataset with significantly high collinearity.  With the aid of this matrix, we have begun the process of re-examining the input variables to fine-tune the feature selection and reduction process.
 
-For more indepth discussion of the MLMs, follow this link:
+For a more indepth discussion of the MLMs, follow this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development">MLM_wiki_link</a>
 
