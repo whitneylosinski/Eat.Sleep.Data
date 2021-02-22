@@ -47,7 +47,7 @@ This initial model produced an R-squared value 0.57, which is not high enough fo
 *  Are robust to outliers and nonlinear data.
 *  Run efficiently on large datasets
 
-From the random forest regressor, we achieved an r-squared value from a testing set of about 0.95 which was suspiciously high. However, we ran an additional calculation to determine the mean squared error which resulted in about 53.86.  This means that, on average, this model's price prediction was off by about $7.30.
+From the random forest regressor, we achieved an r-squared value from a testing set of about 0.95 which was suspiciously high. However, we ran an additional calculation to determine the mean squared error which resulted in about 53.86.  This means that, on average, this model's price prediction was off by about $7.34.
 
 To view this preliminary Random Forest Regressor model, follow the link below:
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Baseline_Model_Testing/Baseline_Model_Testing_files/Baseline_Random_Forest_Regressor.ipynb">Random Forest Model</a>
