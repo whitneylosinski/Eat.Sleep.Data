@@ -16,18 +16,18 @@
       <a href='https://eat.sleep.data.com'>
         <img src="Resources/logo.png" alt="Airbnb Price Predictor" id="logo">
       </a>
-      </div>
-      <div id="navbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="https://eat.sleep.data.com/host" style="font-size: 18px;">Hosting</a>
-          </li>
-          <li>
-            <a href="https://eat.sleep.data.com/renter" style="font-size: 18px;">Renting</a>
-          </li>
-        </ul>
-      </div>
     </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://eat.sleep.data.com/host" style="font-size: 18px;">Hosting</a>
+        </li>
+        <li>
+          <a href="https://eat.sleep.data.com/renter" style="font-size: 18px;">Renting</a>
+        </li>
+      </ul>
+    </div>
+  </div>
   </div>
   <div class="container">
     <div class="row">
@@ -38,45 +38,45 @@
       </div>
     </div>
   </div>
-  <div class="container" >
+  <div class="container">
     <div class="row">
       <p style="font-size: 22px; font-weight: bold;"><u>Listing Details</u></p>
-        <div class="col-md-4" style="padding: 20px; border-radius: 10px; border: 2px solid rgb(34, 136, 184)">
-          <div class="row">
-            <label for="adress">Enter Address:</label>
-            <input type="text" placeholder="123 Broadway, Nashville, TN" id="adress" style="width: 250px;"/>
-          </div>
-          <div class="row">
-            <label for="date">Date:</label>
-            <input type="text" placeholder="01/01/2021" id="datetime" />
-          </div>
-          <div class="row">         
-            <label for="listing_type">Property Type:</label>
-            <!-- <select id="selPropertyType"></select> -->
-            <select id="selPropertyType"; onchange="optionChanged(this.value)"></select>
-          </div> 
-          <div class="row">
-            <label for="room_type">Rooms Type:</label>
-            <!-- <select id="selRoomType"></select> -->
-            <select id="selRoomType"; onchange="optionChanged(this.value)"></select>
-          </div>
-          <div class="row">
-            <label for="number_of_bedrooms">Number of Bedrooms:</label>
-            <!-- <select id="selBedrooms"></select> -->
-            <select id="selBedrooms"; onchange="optionChanged(this.value)"></select>
-          </div>
-          <div class="row">
-            <label for="number_of_beds">Number of Beds:</label>
-            <!-- <select id="selBeds"></select> -->
-            <select id="selBeds"; onchange="optionChanged(this.value)"></select>
-          </div>
-          <div class="row">
-            <label for="number_of_bathrooms">Number of Bathrooms:</label>
-            <!-- <select id="selBaths"></select> -->
-            <select id="selBaths"; onchange="optionChanged(this.value)"></select>
-          </div>
-          <div class="row">
-            <label for="amenities">Amenities:</label>
+      <div class="col-md-4" style="padding: 20px; border-radius: 10px; border: 2px solid rgb(34, 136, 184)">
+        <div class="row">
+          <label for="adress">Enter Address:</label>
+          <input type="text" placeholder="123 Broadway, Nashville, TN" id="address" style="width: 250px;" />
+        </div>
+        <div class="row">
+          <label for="date">Date:</label>
+          <input type="text" placeholder="01/01/2021" id="datetime" />
+        </div>
+        <div class="row">
+          <label for="listing_type">Property Type:</label>
+          <!-- <select id="selPropertyType"></select> -->
+          <select id="selPropertyType" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="room_type">Rooms Type:</label>
+          <!-- <select id="selRoomType"></select> -->
+          <select id="selRoomType" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="number_of_bedrooms">Number of Bedrooms:</label>
+          <!-- <select id="selBedrooms"></select> -->
+          <select id="selBedrooms" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="number_of_beds">Number of Beds:</label>
+          <!-- <select id="selBeds"></select> -->
+          <select id="selBeds" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="number_of_bathrooms">Number of Bathrooms:</label>
+          <!-- <select id="selBaths"></select> -->
+          <select id="selBaths" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="amenities">Amenities:</label>
           <div container="col-md-4">
             <div class="col-md-6">
               <input type="checkbox" id="TV" name="TV" value="Yes">
@@ -125,7 +125,7 @@
               <lable for="Extra_Pillows/Blankets">Extra Pillows/Blankets</lable></br>
               <input type="checkbox" id="Shampoo" name="Shampoo" value="Yes">
               <lable for="Shampoo">Shampoo</lable></br>
-              <input type="checkbox" id="Hangers" name="Hangers" value="Yes">              
+              <input type="checkbox" id="Hangers" name="Hangers" value="Yes">
               <lable for="Hangers">Hangers</lable></br>
               <input type="checkbox" id="Hair_Dryer" name="Hair_Dryer" value="Yes">
               <lable for="Hair_Dryer">Hair Dryer</lable></br>
@@ -159,9 +159,9 @@
       </div>
     </div>
   </div>
-</div>
+  </div>
 
-    </div>
+  </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
