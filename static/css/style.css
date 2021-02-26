@@ -3,23 +3,14 @@ body {
   width: 100%;
 }
 
-.jumbotron {
+#navbar-container {
   background-image: url(https://www.huttonhotel.com/images/hero/partial/dt-broadway.jpg);
-  height: 450px;
+  height: 500px;
   background-size: 100%;
   background-repeat: no-repeat;
-
 }
 
-a {
-  font-size: 18px;
-}
-
-h1 {
-  font-family: serif;
-}
-
-#jumbotron_caption {
+#caption {
   color: white;
   font-size: 26px;
   padding: 50px;
@@ -27,8 +18,9 @@ h1 {
 }
 
 #description-container {
-  padding: 20px;
-  border: 2px solid black;
+  background-color: rgb(253, 191, 76);
+  padding: 5px;
+  border: 5px solid rgb(58, 58, 143);
   border-radius: 10px;
   width: 1200px;
   text-align: center;
@@ -36,21 +28,23 @@ h1 {
 }
 
 #description {
+  color:rgb(58, 58, 143);
   font-family: 'Arial';
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 #inputs_title {
   font-size:22px;
   font-weight:bold;
+  color: rgb(58, 58, 143);
 }
 
 #user_inputs {
   padding: 20px;
   border-radius: 10px;
-  border: 2px solid black;
-  background-color: rgb(161, 186, 211);
+  border: 2px solid rgb(58, 58, 143);
+  background-color: white;
 }
 
 #map {
@@ -66,12 +60,26 @@ h1 {
 
 button {
   height: 50px;
-  width: 300px;
-  background-color:rgb(34, 136, 184);
+  width: 340px;
+  background-color:rgb(58, 58, 143);
   display: inline-block;
   color: white;
   font-size: 20px;
-  border:rgb(34, 136, 184)
+  border:rgb(58, 58, 143);
 }
 
 .button4 {  border-radius: 10px;}
+
+#output-label {
+  color:rgb(253, 191, 76);
+  font-family: 'Arial';
+  font-size: 29px;
+  font-weight: bold;
+}
+
+#output {
+  color:rgb(253, 191, 76);
+  font-family: 'Arial';
+  font-size: 40px;
+  font-weight: bold;
+}

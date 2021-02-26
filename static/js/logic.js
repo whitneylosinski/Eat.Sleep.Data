@@ -50,7 +50,7 @@ map.on('load', function () {
         "source": "nashville",
         "layout": {},
         "paint": {
-            "fill-color": "rgb(0, 58, 116)",
+            "fill-color": "rgb(58, 58, 143)",
             "fill-opacity": 0.2
         }
     });

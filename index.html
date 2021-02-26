@@ -26,12 +26,12 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <!-- <div class="container-fluid">
     <div class="navbar-header">
       <a href='https://eat.sleep.data.com'>
         <img src="PNGs/logo.png" alt="Airbnb Price Predictor" id="logo">
       </a>
-    </div>
+    </div> -->
     <!-- <div id="navbar">
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -42,21 +42,23 @@
         </li>
       </ul>
     </div> -->
-  </div>
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container-fluid">
-      <p id="jumbotron_caption"><b>Get the most from your short term rental.</b></p>
+  <!-- </div> -->
+  <div class="container-fluid" id="navbar-container">
+    <div class="navbar-header">
+      <a href='https://eat.sleep.data.com'></a>
+      <img src="PNGs/logo2.png" alt="Airbnb Price Predictor" id="logo">
+      <div class="container-fluid">
+        <p id="caption"><b>Get the most from your short term rental.</b></p>
+      </div>
     </div>
-  </div>
+  <div class="container" style="height:450px"></div>
   <div class="container" id="description-container">
-      <p id="description">Looking to list your short-term rental but don't know how much to charge?
-        Let us help!  Enter the details of your property below and we'll calculate the best listing price based on
-      historical Airbnb data!</p>
+      <p id="description">Looking to list your short-term rental but don't know how much to charge? </br>
+        -- Let us help! --</br>  Enter the details of your property below and we'll calculate the best listing price based on
+      historical Airbnb data!</br>The best part?...It's free!!</p>
     </div>
   </div>
-  <div class="container" style="height: 20px">
-
-  </div>
+  <div class="container" style="height: 120px"></div>
   <div class="container">
     <div class="row">
       <p id="inputs_title"><u>Listing Details</u></p>
@@ -173,21 +175,27 @@
               <input type="checkbox" id="Fire_Extinguisher" name="Fire_Extinguisher" value="Yes">
               <lable for="Fire_Extinguisher">Fire Extinguisher</lable></br>
             </div>
-          </div>         
+          </div>     
+        </div>
+        <div class="container" style="height:10px"></div>
+        <div class="col-md-8">
+          <div class="row">
+            <button class="button button4">Calculate My Listing Price</button>
+          </div>
         </div>
       </div>
-      <div class="col-md-8">
-        <div class="row">
+      <div class="container">
+        <div class="col-md-6">
+          <p id="output-label">YOUR SUGGESTED LISTING PRICE IS:</p>
         </div>
-      <h4>To determine the district in which your rental is located, enter the address in the search bar on the map and click on the marker.</h4>
-      <div class="col-md-8">
-        <div class="row" style="height:520px">
+        <div class="col-md-1">
+          <output id="output">$123.45</output>
+        </div>
+        <div class="col-md-8">
+          <h5>To determine the district in which your rental is located, enter the address in the search bar on the map and click on the marker.</h5>
+        </div>
+        <div class="col-md-8">
           <div class="map-width" id="map"></div>
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="row">
-          <button class="button button4">Calculate My Listing Price</button>
         </div>
       </div>
     </div>
