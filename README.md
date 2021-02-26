@@ -78,7 +78,7 @@ Our team is using the following mediums for communication purposes:
 
 We are using google slides for our presentation.  This is not something that is compatible with uploading to Github so click on the link below to access the working draft of the presentation:
 
-![Eat.Sleep.Data Presentation](https://docs.google.com/presentation/d/1Zc1F9oELCDqSdckrNKxSkt8MXX__JlBjGESOXU5EHIo/edit#slide=id.gc0c5f2e070_0_21)
+![Eat.Sleep.Data Presentation](https://docs.google.com/presentation/d/e/2PACX-1vSXOcxM3okHa9elmUrgC4XSIVFDAI0BqpKFPFavd9fuoEGvCoXLyWOU1hlPmIZydc78vxWU6Wf-O15u/pub?start=false&loop=false&delayms=5000)
 
 
 
