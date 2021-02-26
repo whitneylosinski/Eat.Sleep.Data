@@ -13,7 +13,8 @@ body {
 #caption {
   color: white;
   font-size: 26px;
-  padding: 50px;
+  padding-left: 50px;
+  padding-top: 20px;
   text-indent: 50px;
 }
 
@@ -35,9 +36,10 @@ body {
 }
 
 #inputs_title {
-  font-size:22px;
+  font-size:24px;
   font-weight:bold;
   color: rgb(58, 58, 143);
+  align-self: center;
 }
 
 #user_inputs {
@@ -45,6 +47,12 @@ body {
   border-radius: 10px;
   border: 2px solid rgb(58, 58, 143);
   background-color: white;
+}
+
+#map-instructions {
+  color:rgb(58, 58, 143);
+  font-size: 16px;
+  padding-top: 20px;
 }
 
 #map {
@@ -75,11 +83,17 @@ button {
   font-family: 'Arial';
   font-size: 29px;
   font-weight: bold;
+  text-align: center;
 }
 
 #output {
   color:rgb(253, 191, 76);
   font-family: 'Arial';
-  font-size: 40px;
+  font-size: 55px;
   font-weight: bold;
+  text-align: center;
+}
+
+.fancyLine {
+  border-bottom: 10px solid rgb(58, 58, 143);
 }
