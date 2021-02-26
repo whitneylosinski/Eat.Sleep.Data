@@ -74,3 +74,11 @@ Our team is using the following mediums for communication purposes:
    *   Branches - team members have decided to forgo individual named branches and create topic based branches.  Any member named branches are used for their own discovery and scribbles. 
 
 
+## Presentation
+
+We are using google slides for our presentation.  This is not something that is compatible with uploading to Github so click on the link below to access the working draft of the presentation:
+
+![Eat.Sleep.Data Presentation](https://docs.google.com/presentation/d/1Zc1F9oELCDqSdckrNKxSkt8MXX__JlBjGESOXU5EHIo/edit#slide=id.gc0c5f2e070_0_21)
+
+
+
