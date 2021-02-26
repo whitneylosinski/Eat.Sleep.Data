@@ -78,7 +78,7 @@ Our team is using the following mediums for communication purposes:
 
 We are using google slides for our presentation.  This is not something that is compatible with uploading to Github so click on the link below to access the working draft of the presentation:
 
-{google_docs}(https://docs.google.com/presentation/d/e/2PACX-1vSXOcxM3okHa9elmUrgC4XSIVFDAI0BqpKFPFavd9fuoEGvCoXLyWOU1hlPmIZydc78vxWU6Wf-O15u/pub?start=false&loop=false&delayms=5000){/google_docs}
+{google_docs}https://docs.google.com/presentation/d/e/2PACX-1vSXOcxM3okHa9elmUrgC4XSIVFDAI0BqpKFPFavd9fuoEGvCoXLyWOU1hlPmIZydc78vxWU6Wf-O15u/pub?start=false&loop=false&delayms=3000{/google_docs}
 
 
 
