@@ -8,130 +8,155 @@
   <title>Nashville Airbnb Price Predictor</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap-responsive.css">
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+    type="text/css">
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+    type="text/css">
+  <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 
-<body style="background-color:white; width: 100%;">
-  <div class="container">
+<body>
+  <div class="container-fluid" id="navbar-container">
     <div class="navbar-header">
-      <a href='https://eat.sleep.data.com'>
-        <img src="../Resources/logo.png" alt="Airbnb Price Predictor" id="logo">
-      </a>
-      <!-- <div id="navbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="https://eat.sleep.data.com/host" style="font-size: 18px;">Hosting</a>
-          </li>
-          <li>
-            <a href="https://eat.sleep.data.com/renter" style="font-size: 18px;">Renting</a>
-          </li>
-        </ul>
-      </div> -->
+      <a href='https://eat.sleep.data.com'></a>
+      <img src="PNGs/logo.png" alt="Airbnb Price Predictor" id="logo">
+      <div class="container-fluid">
+        <p id="caption"><b>Get the most from your short term rental.</b></p>
+      </div>
+    </div>
+  <div class="container" style="height:450px"></div>
+  <div class="container" id="description-container">
+      <p id="description">Looking to list your short-term rental but don't know how much to charge? </br>
+        -- Let us help! --</br>  Enter the details of your property below and we'll calculate the best listing price based on
+      historical Airbnb data!</br>The best part?...It's free!!</p>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="jumbotron jumbotron-fluid" style="background-image: url(https://www.huttonhotel.com/images/hero/partial/dt-broadway.jpg); 
-         height: 500px; background-size: 100%; background-repeat: no-repeat;">
-        <h1 style="font-family: serif; color: white"><b></b></h1>
-        <p style="color: white"><b>Get the most from your short term rental.</b></p>
+  <div class="container" style="height: 120px"></div>
+  <div class="container" >
+    <div id="user_inputs" class="col-md-4">
+      <div class="row">
+        <p id="inputs_title"><u>Listing Details</u></p>
+      </div>
+      <div class="form-group">
+          <label for="address">Enter Address:</label>
+          <input type="text" placeholder="123 Broadway, Nashville, TN" name="address" style="width: 250px;"/>
+      </div>
+      <div class="form-group">
+        <label for="neighborhood">Neighborhood:</label>
+        <input type="text" placeholder="" name="neighborhood" style="width: 250px;"/>
+      </div>
+      <div class="form-group">         
+          <label for="listing_type">Property Type:</label>
+          <select name="selPropertyType">
+            <option value="house">House</option>
+            <option value="apartment">Apartment</option>
+            <option value="condominium">Condo</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="guest_suite">Guest Suite</option>
+            <option value="loft">Loft</option>
+            <option value="bungalow">Bungalow</option>
+            <option value="guest_house">Guest House</option>
+            <option value="other">Other</option>
+          </select>
+      </div> 
+      <div class="form-group">
+          <label for="room_type">Rooms Type:</label>
+          <select name="selRoomType">
+            <option value="entire_home">Entire Home/Apartment</option>
+            <option value="private_room">Private Room</option>
+            <option value="shared_room">Shared Room</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="number_of_bedrooms">Number of Bedrooms:</label>
+          <select name="selBedrooms">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5+">5+</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="number_of_beds">Number of Beds:</label>
+          <select name="selBeds">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10+">10+</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="number_of_bathrooms">Number of Bathrooms:</label>
+          <select name="selBaths">
+            <option value="0">0</option>
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
+            <option value="3">3</option>
+            <option value="3.5">3.5</option>
+            <option value="4">4</option>
+            <option value="4.5">4.5</option>
+            <option value="5+">5+</option>
+          </select>
+      </div>
+      <div class="container" style="height:10px"></div>
+        <div class="col-md-8">
+          <div class="row">
+            <button type="submit" class="btn btn-primary">Calculate My Listing Price</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="col-md-8">
+        <hr class="fancyLine"></hr>
+          <p id="output-label">YOUR SUGGESTED LISTING PRICE IS:</p>
+      </div>
+    <div class="container">
+      <div class="col-md-8">
+          <output id="output">$123.45</output>
+      </div>
+    <div class="container">
+      <div class="col-md-8">
+        <hr class="fancyLine"></hr>
+        <p id="map-instructions">To find your district, enter the address of your rental in the map search bar, press Enter and then hover your mouse over the location marker.</p>
+      </div>
+      <div class="col-md-8">
+        <div class="map-width" id="map"></div>
       </div>
     </div>
   </div>
-  <div class="container" >
-    <div class="row">
-      <p style="font-size: 22px; font-weight: bold;"><u>Listing Details</u></p>
-        <div class="col-md-4" style="padding: 20px; border-radius: 10px; border: 2px solid rgb(34, 136, 184)">
-            <form method="POST">
-                <div class="form-group">
-                    <label for="address">Enter Address:</label>
-                    <input type="text" placeholder="123 Broadway, Nashville, TN" name="address" style="width: 250px;"/>
-                </div>
-                <div class="form-group">
-                  <label for="neighborhood">Neighborhood:</label>
-                  <input type="text" placeholder="" name="neighborhood" style="width: 250px;"/>
-                </div>
-                <!-- <div class="form-group">
-                    <label>Test Input 1:</label>
-                    <input type="number" name="input1" />
-                </div>
-                <div class="form-group">
-                    <label>Test Input 2:</label>
-                    <input type="number" name="input2"/>
-                </div> -->
-                <div class="form-group">         
-                    <label for="listing_type">Property Type:</label>
-                    <select name="selPropertyType">
-                      <option value="house">House</option>
-                      <option value="apartment">Apartment</option>
-                      <option value="condominium">Condo</option>
-                      <option value="townhouse">Townhouse</option>
-                      <option value="guest_suite">Guest Suite</option>
-                      <option value="loft">Loft</option>
-                      <option value="bungalow">Bungalow</option>
-                      <option value="guest_house">Guest House</option>
-                      <option value="other">Other</option>
-                    </select>
-                </div> 
-                <div class="form-group">
-                    <label for="room_type">Rooms Type:</label>
-                    <select name="selRoomType">
-                      <option value="entire_home">Entire Home/Apartment</option>
-                      <option value="private_room">Private Room</option>
-                      <option value="shared_room">Shared Room</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="number_of_bedrooms">Number of Bedrooms:</label>
-                    <select name="selBedrooms">
-                      <option value="0">0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5+">5+</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="number_of_beds">Number of Beds:</label>
-                    <select name="selBeds">
-                      <option value="0">0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10+">10+</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="number_of_bathrooms">Number of Bathrooms:</label>
-                    <select name="selBaths">
-                      <option value="0">0</option>
-                      <option value="0.5">0.5</option>
-                      <option value="1">1</option>
-                      <option value="1.5">1.5</option>
-                      <option value="2">2</option>
-                      <option value="2.5">2.5</option>
-                      <option value="3">3</option>
-                      <option value="3.5">3.5</option>
-                      <option value="4">4</option>
-                      <option value="4.5">4.5</option>
-                      <option value="5+">5+</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Predict</button>
-            </form>
-            <p>{{result}}</p>
-        </div>
+</body>
+  <!-- <p>{{result}}</p> -->
+</div>
     </div>
   </div> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="charts.js"></script>
+    <!-- API key -->
+    <script type="text/javascript" src="static/js/config.js"></script>
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="static/js/logic.js"></script>
 
 </body>
 

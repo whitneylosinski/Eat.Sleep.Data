@@ -1,0 +1,99 @@
+body {
+  background-color:white;
+  width: 100%;
+}
+
+#navbar-container {
+  background-image: url(https://www.huttonhotel.com/images/hero/partial/dt-broadway.jpg);
+  height: 500px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#caption {
+  color: white;
+  font-size: 26px;
+  padding-left: 50px;
+  padding-top: 20px;
+  text-indent: 50px;
+}
+
+#description-container {
+  background-color: rgb(253, 191, 76);
+  padding: 5px;
+  border: 5px solid rgb(58, 58, 143);
+  border-radius: 10px;
+  width: 1200px;
+  text-align: center;
+
+}
+
+#description {
+  color:rgb(58, 58, 143);
+  font-family: 'Arial';
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#inputs_title {
+  font-size:24px;
+  font-weight:bold;
+  color: rgb(58, 58, 143);
+  align-self: center;
+}
+
+#user_inputs {
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid rgb(58, 58, 143);
+  background-color: white;
+}
+
+#map-instructions {
+  color:rgb(58, 58, 143);
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.map-width {
+  width: 765px;
+  height: 500px;
+}
+
+button {
+  height: 50px;
+  width: 340px;
+  background-color:rgb(58, 58, 143);
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  border:rgb(58, 58, 143);
+}
+
+.button4 {  border-radius: 10px;}
+
+#output-label {
+  color:rgb(253, 191, 76);
+  font-family: 'Arial';
+  font-size: 29px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#output {
+  color:rgb(253, 191, 76);
+  font-family: 'Arial';
+  font-size: 55px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.fancyLine {
+  border-bottom: 10px solid rgb(58, 58, 143);
+}
