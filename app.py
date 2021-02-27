@@ -37,11 +37,10 @@ def my_form_post():
     baths = request.form['selBaths']
     # result = airbnb_price_predict.addition(input1, input2)
     result = airbnb_price_predict.summarize_inputs(address, neighborhood, property_type, room_type, bedrooms, beds, baths)
-    return result
-    # return render_template(
-    #     "index.html",
-    #     result=result
-    # )
+    return render_template(
+        "index.html",
+        result=result
+    )
 
 if __name__ == "__main__":
     app.run()
