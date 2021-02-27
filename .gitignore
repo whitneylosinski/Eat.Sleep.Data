@@ -132,4 +132,4 @@ dmypy.json
 .pyre/
 
 # Saved model file (>100MB)
-.pickle
+*.pickle
