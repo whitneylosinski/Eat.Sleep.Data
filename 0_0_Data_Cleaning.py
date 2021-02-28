@@ -5,7 +5,7 @@ import psycopg2
 import time
 import datetime
 
-def clean_data (cal_table_raw, cal_table_to_save,listing_table_raw,lisitng_table_to_save):
+def clean_data (cal_table_raw, listing_table_raw, cal_table_to_save, lisitng_table_to_save, amenities_table_to_save):
     conn_string = 'postgres://whnpmxwsiccrtg:53c453893549d2b1e6a4ff92e626a2a08ebcaff66678e50d33e3742f66e3e4f4@ec2-52-4-171-132.compute-1.amazonaws.com/d2ajro4cjr10lb'
     db = create_engine(conn_string)
     conn = db.connect()
@@ -50,8 +50,11 @@ def clean_data (cal_table_raw, cal_table_to_save,listing_table_raw,lisitng_table
     #read in listing data
     list_data = pd.read_sql_query(('select * from "{}"').format(listing_table_raw),con=conn)
 
+    #create amenities df to be parsed
+    amenities_df = list_data[['id', 'amenities']]
+
     #keep non-descriptor columns
-    liast_data_new = list_data[['id','last_scraped','host_since','host_listings_count','host_is_superhost','host_identity_verified','neighbourhood_cleansed',\
+    list_data_new = list_data[['id','last_scraped','host_since','host_listings_count','host_is_superhost','host_identity_verified','neighbourhood_cleansed',\
     'latitude','longitude','room_type','property_type','accommodates','bathrooms','bedrooms','beds','bed_type',\
     'square_feet','price','weekly_price','monthly_price','security_deposit','cleaning_fee','review_scores_rating',
     'number_of_reviews','review_scores_cleanliness',\
@@ -80,14 +83,7 @@ def clean_data (cal_table_raw, cal_table_to_save,listing_table_raw,lisitng_table
     # drop 'beds'  many have 0s and some nans so not descriptive
     list_data_new=list_data_new.drop(columns=['beds'])
 
-    # create new variable yes or no as to reviews so if this is no and the review is 0
-    # reviews range from 2 to 10 there are no real 0 reviews
-    list_data_new['is_review'] = np.where(list_data_new['review_scores_rating']>0,True,False)
-
-    #  replace all NaNs in review columns with 0 - note there are no real 0 reviews and there is a variable is_review to identify the fake 0 values
-    cols=['review_scores_value','review_scores_location','review_scores_checkin','review_scores_communication','review_scores_cleanliness','review_scores_rating']
-    list_data_new[cols]=list_data_new[cols].fillna(0)
-
+    
     # Calculate number of days hosted
     date1=list_data_new['last_scraped'][0]
     date2=list_data_new['host_since'][0]
@@ -99,5 +95,52 @@ def clean_data (cal_table_raw, cal_table_to_save,listing_table_raw,lisitng_table
     list_data_new[['last_scraped','host_since']] = list_data_new[['last_scraped','host_since']].apply(pd.to_datetime) #if conversion required
     list_data_new['days_host'] = (list_data_new['last_scraped'] - list_data_new['host_since']).dt.days
 
+    # Dropping review columns with collinearity above 0.8 besides whether it has reviews or number of reviews:
+    list_data_new = list_data_new.drop(columns=['review_scores_communication', 'is_review', 'review_scores_checkin', 'review_scores_cleanliness', 'review_scores_value', 'review_scores_location'])
+
+
     #export cleaned lisitng data to postgres
     list_data_new.to_sql(("{}").format(lisitng_table_to_save), con=conn, if_exists='replace', index=False)
+
+    # Clean the amenities lists to remove spaces, quotes, parenthesis, brackets and capitals.
+    amenities_df['amenities'] = amenities_df['amenities'].str.lower().str.replace(' ', '_').str.replace('"', '').str.replace('{', '').str.replace('}', '').str.replace('(', '').str.replace(')', '')
+
+    # iterate over each row, parse the amenities string and assign 1 for amenities listed and 0 for amenities not listed in each row.
+    for index, row in amenities_df.iterrows():
+        for amenity in row['amenities'].split(','):
+            amenities_df.loc[index, amenity] = 1
+
+    amenities_df.fillna(0, inplace=True)
+
+    # Drop the amenities column and the column with no name.
+    amenities_df = amenities_df.drop(columns=['amenities', ''])
+
+    # Create a new "Kitchen_Grouped" column whose values will be the sum of the values from all the kitchen-related amenity columns:
+    amenities_df["Kitchen_Summed"] = amenities_df[["dishes_and_silverware", "refrigerator", "oven", "coffee_maker", "stove", "microwave", "dishwasher", "cooking_basics"]].sum(axis=1)
+
+    # Any values of the new "Kitchen_Summed" column which are less than 4, replace as 0 and if 4 or more replace as a 1
+    amenities_df["Kitchen_Grouped_Binary"] = amenities_df["Kitchen_Summed"].replace({0:0, 1:0, 2:0, 3:0, 4:1, 5:1, 6:1, 7:1, 8:1})
+
+    # Drop the old columns:
+    amenities_df = amenities_df.drop(columns=["Kitchen_Summed", "dishes_and_silverware", "refrigerator", "oven", "coffee_maker", "stove", "microwave", "dishwasher", "cooking_basics"])
+
+    # Sum the values from all the bathroom-related columns into one "Bathroom_Grouped" column:
+    amenities_df["Bathroom_Summed"] = amenities_df[["bathroom_essentials", "bath_towel"]].sum(axis=1)
+
+    # Any values less than 2, replace as 0, if 2 or more, replace with 1:
+    amenities_df["Bathroom_Grouped_Binary"] = amenities_df["Bathroom_Summed"].replace({0:0, 1:0, 2:1})
+
+    # Drop the old columns:
+    amenities_df = amenities_df.drop(columns=["Bathroom_Summed", "bathroom_essentials", "bath_towel"])
+
+    # Create a new "Washer_Dryer_Grouped" column whose values will be the sum of the values from all the kitchen-related amenity columns:
+    amenities_df["Laundry_Summed"] = amenities_df[["washer", "dryer"]].sum(axis=1)
+
+    # Any values less than 2, replace as 0, if 2 or more, replace with 1.  Note, this will only give a 1 if both washer and dryer are present.
+    amenities_df["Laundry_Grouped_Binary"] = amenities_df["Laundry_Summed"].replace({0:0, 1:0, 2:1})
+
+    # Drop the old columns:
+    amenities_df = amenities_df.drop(columns=["Laundry_Summed", "washer", "dryer"])
+
+    #export parsed amenitiy data to postgres
+    amenities_df.to_sql(("{}").format(amenities_table_to_save), con=conn, if_exists='replace', index=False)
