@@ -10,17 +10,6 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-# Make prediction using ml model
-@app.route("/predict")
-def predict():
-    price_prediction = airbnb_price_predict.predict()
-    return price_prediction
-
-# Get accuracy/loss info about ml model
-@app.route("/info")
-def get_model_info():
-    model_info = airbnb_price_predict.model_loss_accuracy()
-    return model_info
 
 @app.route('/', methods=['POST'])
 def my_form_post():
@@ -35,11 +24,10 @@ def my_form_post():
     beds = request.form['selBeds']
     baths = request.form['selBaths']
     # result = airbnb_price_predict.addition(input1, input2)
-    result = airbnb_price_predict.summarize_inputs(district, property_type, room_type, bedrooms, beds, baths)
+    result = airbnb_price_predict.predict(district, property_type, room_type, bedrooms, beds, baths)
     return render_template(
         "index.html",
-        tables=[result.to_html(classes='data', header="true")],
-        titles=result.columns.values
+        result = result
     )
 
 if __name__ == "__main__":

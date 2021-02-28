@@ -15,17 +15,23 @@ def model_loss_accuracy():
     results = f"Loss: {model_loss}, Accuracy: {model_accuracy}"
     return results
 
-def predict():
-    # Import the model to a new object
-    nn_imported = tf.keras.models.load_model('PricePredictionModel.h5')
+def predict(districts, property_type, room_type, bedrooms, beds, baths):
+    # Clean inputs from webpage
+    
+    # Test opening saved model and run prediction
+    import pickle
+    filename = 'rfr_model_post_feat_sel.pickle'
 
-    # Import test data
-    X_test_scaled = np.genfromtxt('X_test_scaled.csv', delimiter=',')
+    with open(filename, 'rb') as file:
+        pickle_model = pickle.load(file)
 
+    # Aggregate test data and reshape
+    X_test = [1,1,baths,bedrooms,0,50,2.5,1,1,1,0,1,1,6,0,0,0,1,0,1]
+    X_test = np.array(X_test)
+    X_test = X_test.reshape(1,-1)
     # Make predictions using the test data
-    results = pd.DataFrame(nn_imported.predict(X_test_scaled))
-    html = results.to_html()
-    return html
+    result = pickle_model.predict(X_test)
+    return round(result[0],2)
 
 def addition(input1, input2):
     result = input1 + input2
