@@ -52,7 +52,6 @@ From the random forest regressor, we achieved an R-squared value from a testing 
 To view this preliminary Random Forest Regressor model, follow the link below:
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Baseline_Model_Testing/Baseline_Model_Testing_files/Baseline_Random_Forest_Regressor.ipynb">Random Forest Model</a>
 
-
 Following these two baseline tests, additional tests are in the planning stage, including tweaking of the hyperparameters, to further reduce predictive errors as well as minimize overfitting to the models.  Furthermore, the group collaborated on producing a multi-collinearity matrix which revealed numerous variables in the dataset with significantly high collinearity.  With the aid of this matrix, we have begun the process of re-examining the input variables to fine-tune the feature selection and reduction process.
 
 For a more indepth discussion of the MLMs, follow this link:
@@ -60,23 +59,28 @@ For a more indepth discussion of the MLMs, follow this link:
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development">MLM_wiki_link</a>
 
 ## Connection of draft model to Postgres Database:
-
 Both the draft models are linked to the Heroku postgres database and running properly as shown in the following image:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Database">Postgres Database Example</a>
+
+## Dashboard
+Our initial schema for our dashboard can be seen at the following link, along with a description of how the user will ineract with the web app.
+
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Dashboard">Dashboard</a>
+
+To make the functional dashboard, the team developed a Flask application that is deployed to Heroku.  The visual portion of the dashboard was designed using HTML5 while JavaScript was used to create the interactive map and Python was used for taking in the user inputs, using the model to predict the price and then displaying the resulting suggested price.  A more detialed description of the Flask app can be found at the following link.
+
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Flask-App-via-Heroku">Flask App via Heroku</a>
 
 ## Communication Protocols:
 Our team is using the following mediums for communication purposes:
  - **Discord** - for messaging and basic communication.  Our discord board includes a "general" tab for informational messages, a "data-discovery" tab for information on datasets, and "important_and_useful_links" for the links to the sourced database, the Postgres database, the web app and any other important links.  We also have the ever important "off-topic" tab for general socializing.
  - **Zoom** - for team meetings and video conferencing.  Our zoom calls consist of both scheduled and impromptu meetings set up through our Discord channel.
- - **Trello** - for organizing and documenting tasks.  Our board can be viewed <a href= "https://trello.com/eatsleepdata">here.</a>
+ - **Trello** - for organizing and documenting tasks.
  - **Github** - for programming and collaborative work. 
    *   Branches - team members have decided to forgo individual named branches and create topic based branches.  Any member named branches are used for their own discovery and scribbles. 
 
 
 ## Presentation
-
 We are using google slides for our presentation.
 https://docs.google.com/presentation/d/1Zc1F9oELCDqSdckrNKxSkt8MXX__JlBjGESOXU5EHIo/edit?usp=sharing
-
-
