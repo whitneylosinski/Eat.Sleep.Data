@@ -31,13 +31,11 @@ def addition(input1, input2):
     result = input1 + input2
     return result
 
-def summarize_inputs(address, neighborhood, property_type, room_type, bedrooms, beds, baths):
+def summarize_inputs(districts, property_type, room_type, bedrooms, beds, baths):
     # result = f"Address:{address}\nNeighborhood: {neighborhood}\nProperty Type: {property_type}\nRoom Type: {room_type}\nBedrooms: {bedrooms}\nBeds: {beds}\nBaths: {baths}"
     result = pd.DataFrame(  
-                        data=[address, neighborhood, property_type, room_type, bedrooms, beds, baths], 
-                        index=['Address', 'Neighborhood', 'Property Type', 'Room Type', 'Bedrooms', 'Beds', 'Baths'],
+                        data=[districts, property_type, room_type, bedrooms, beds, baths], 
+                        index=['Districts', 'Property Type', 'Room Type',  'Bedrooms', 'Beds', 'Baths'],
                         columns=["Inputs"]
-                        )   
-
-    html = result.to_html()                    
-    return html
+                        )                  
+    return result

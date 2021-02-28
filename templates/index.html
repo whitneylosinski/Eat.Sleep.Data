@@ -9,7 +9,6 @@
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
   <title>Nashville Airbnb Price Predictor</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-responsive.css">
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet"
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
@@ -29,7 +28,7 @@
   <div class="container-fluid" id="navbar-container">
     <div class="navbar-header">
       <a href='https://eat.sleep.data.com'></a>
-      <img src="../Resources/logo.png" alt="Airbnb Price Predictor" id="logo">
+      <img src="{{url_for('static', filename='logo.png')}}" alt="Airbnb Price Predictor" id="logo">
       <div class="container-fluid">
         <p id="caption"><b>Get the most from your short term rental.</b></p>
       </div>
@@ -47,7 +46,8 @@
       <div class="row">
         <p id="inputs_title"><u>Listing Details</u></p>
       </div>
-      <div class="form-group">
+      <form action="" method="post">
+        <div class="form-group">
           <label for="district">District:</label>
           <select name="selDistrict">
             <option value="district1">District 1</option>
@@ -60,8 +60,8 @@
             <option value="district8">District 8</option>
             <option value="district9">District 9</option>
           </select>
-      </div>
-      <div class="form-group">         
+        </div>
+        <div class="form-group">         
           <label for="listing_type">Property Type:</label>
           <select name="selPropertyType">
             <option value="house">House</option>
@@ -74,16 +74,16 @@
             <option value="guest_house">Guest House</option>
             <option value="other">Other</option>
           </select>
-      </div> 
-      <div class="form-group">
+        </div> 
+        <div class="form-group">
           <label for="room_type">Rooms Type:</label>
           <select name="selRoomType">
             <option value="entire_home">Entire Home/Apartment</option>
             <option value="private_room">Private Room</option>
             <option value="shared_room">Shared Room</option>
           </select>
-      </div>
-      <div class="form-group">
+        </div>
+        <div class="form-group">
           <label for="number_of_bedrooms">Number of Bedrooms:</label>
           <select name="selBedrooms">
             <option value="0">0</option>
@@ -93,8 +93,8 @@
             <option value="4">4</option>
             <option value="5+">5+</option>
           </select>
-      </div>
-      <div class="form-group">
+        </div>
+        <div class="form-group">
           <label for="number_of_beds">Number of Beds:</label>
           <select name="selBeds">
             <option value="0">0</option>
@@ -109,29 +109,30 @@
             <option value="9">9</option>
             <option value="10+">10+</option>
           </select>
-      </div>
-      <div class="form-group">
-          <label for="number_of_bathrooms">Number of Bathrooms:</label>
-          <select name="selBaths">
-            <option value="0">0</option>
-            <option value="0.5">0.5</option>
-            <option value="1">1</option>
-            <option value="1.5">1.5</option>
-            <option value="2">2</option>
-            <option value="2.5">2.5</option>
-            <option value="3">3</option>
-            <option value="3.5">3.5</option>
-            <option value="4">4</option>
-            <option value="4.5">4.5</option>
-            <option value="5+">5+</option>
-          </select>
-      </div>
-      <div class="container" style="height:10px"></div>
-      <div class="col-md-8">
-        <div class="row">
-          <button type="submit" class="button button4">Calculate My Listing Price</button>
         </div>
-      </div>
+        <div class="form-group">
+            <label for="number_of_bathrooms">Number of Bathrooms:</label>
+            <select name="selBaths">
+              <option value="0">0</option>
+              <option value="0.5">0.5</option>
+              <option value="1">1</option>
+              <option value="1.5">1.5</option>
+              <option value="2">2</option>
+              <option value="2.5">2.5</option>
+              <option value="3">3</option>
+              <option value="3.5">3.5</option>
+              <option value="4">4</option>
+              <option value="4.5">4.5</option>
+              <option value="5+">5+</option>
+            </select>
+        </div>
+        <div class="container" style="height:10px"></div>
+        <div class="col-md-8">
+          <div class="row">
+            <button type="submit" class="button button4">Calculate My Listing Price</button>
+          </div>
+        </div>
+      </form>
     </div>
     <div class="container">
       <div class="col-md-8">
@@ -140,7 +141,10 @@
       </div>
     <div class="container">
       <div class="col-md-8">
-          <output id="output">{{result}}</output>
+        {% for table in tables %}
+        {{titles[loop.index]}}
+        {{ table|safe }}
+        {% endfor %}
       </div>
     <div class="container">
       <div class="col-md-8">
