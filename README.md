@@ -76,6 +76,7 @@ Our team is using the following mediums for communication purposes:
 
 ## Presentation
 
-We are using google slides for our presentation.  This is not something that is compatible with uploading to Github or creating a link in the Readme so the presentation URL is included in the segment submission.  
+We are using google slides for our presentation.
+https://docs.google.com/presentation/d/1Zc1F9oELCDqSdckrNKxSkt8MXX__JlBjGESOXU5EHIo/edit?usp=sharing
 
 
