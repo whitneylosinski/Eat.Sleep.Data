@@ -20,11 +20,12 @@ def my_form_post():
     district = request.form['selDistrict']
     property_type = request.form['selPropertyType']
     room_type = request.form['selRoomType']
+    accommodates = request.form['selAccommodates']
     bedrooms = request.form['selBedrooms']
     beds = request.form['selBeds']
     baths = request.form['selBaths']
     # result = airbnb_price_predict.addition(input1, input2)
-    result = airbnb_price_predict.predict(district, property_type, room_type, bedrooms, beds, baths)
+    result = airbnb_price_predict.predict(district, property_type, room_type,accommodates, bedrooms, beds, baths)
     return render_template(
         "index.html",
         result = result

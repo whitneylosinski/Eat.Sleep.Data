@@ -15,7 +15,7 @@ def model_loss_accuracy():
     results = f"Loss: {model_loss}, Accuracy: {model_accuracy}"
     return results
 
-def predict(districts, property_type, room_type, bedrooms, beds, baths):
+def predict(districts, property_type, room_type, accommodates, bedrooms, beds, baths):
     # Clean inputs from webpage
     
     # Test opening saved model and run prediction
@@ -26,7 +26,7 @@ def predict(districts, property_type, room_type, bedrooms, beds, baths):
         pickle_model = pickle.load(file)
 
     # Aggregate test data and reshape
-    X_test = [1,1,baths,bedrooms,0,50,2.5,1,1,1,0,1,1,6,0,0,0,1,0,1]
+    X_test = [1,accommodates,baths,bedrooms,0,50,2.5,1,1,1,0,1,1,6,0,0,0,1,0,1]
     X_test = np.array(X_test)
     X_test = X_test.reshape(1,-1)
     # Make predictions using the test data
@@ -37,7 +37,7 @@ def addition(input1, input2):
     result = input1 + input2
     return result
 
-def summarize_inputs(districts, property_type, room_type, bedrooms, beds, baths):
+def summarize_inputs(districts, property_type, room_type, accommodates, bedrooms, beds, baths):
     # result = f"Address:{address}\nNeighborhood: {neighborhood}\nProperty Type: {property_type}\nRoom Type: {room_type}\nBedrooms: {bedrooms}\nBeds: {beds}\nBaths: {baths}"
     result = pd.DataFrame(  
                         data=[districts, property_type, room_type, bedrooms, beds, baths], 
