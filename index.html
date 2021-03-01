@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+  <title>Nashville Airbnb Price Predictor</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.css">
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+    type="text/css">
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+    type="text/css">
+  <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+
+<body>
+  <!-- <div class="container-fluid">
+    <div class="navbar-header">
+      <a href='https://eat.sleep.data.com'>
+        <img src="PNGs/logo.png" alt="Airbnb Price Predictor" id="logo">
+      </a>
+    </div> -->
+    <!-- <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://eat.sleep.data.com/host">Hosting</a>
+        </li>
+        <li>
+          <a href="https://eat.sleep.data.com/renter">Renting</a>
+        </li>
+      </ul>
+    </div> -->
+  <!-- </div> -->
+  <div class="container-fluid" id="navbar-container">
+    <div class="navbar-header">
+      <a href='https://eat.sleep.data.com'></a>
+      <img src="PNGs/logo.png" alt="Airbnb Price Predictor" id="logo">
+      <div class="container-fluid">
+        <p id="caption"><b>Get the most from your short term rental.</b></p>
+      </div>
+    </div>
+  <div class="container" style="height:450px"></div>
+  <div class="container" id="description-container">
+      <p id="description">Looking to list your short-term rental but don't know how much to charge? </br>
+        -- Let us help! --</br>  Enter the details of your property below and we'll calculate the best listing price based on
+      historical Airbnb data!</br>The best part?...It's free!!</p>
+    </div>
+  </div>
+  <div class="container" style="height: 120px"></div>
+  <div class="container">
+      <div id="user_inputs" class="col-md-4">
+        <div class="row">
+          <p id="inputs_title"><u>Listing Details</u></p>
+        </div>
+        <div class="row">
+          <label for="district">District:</label>
+          <select id="selPropertyType" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="date">Date:</label>
+          <input type="text" placeholder="01/01/2021" id="datetime" />
+        </div>
+        <div class="row">
+          <label for="listing_type">Property Type:</label>
+          <!-- <select id="selPropertyType"></select> -->
+          <select id="selPropertyType" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="room_type">Rooms Type:</label>
+          <!-- <select id="selRoomType"></select> -->
+          <select id="selRoomType" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="number_of_bedrooms">Number of Bedrooms:</label>
+          <!-- <select id="selBedrooms"></select> -->
+          <select id="selBedrooms" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="number_of_beds">Number of Beds:</label>
+          <!-- <select id="selBeds"></select> -->
+          <select id="selBeds" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="number_of_bathrooms">Number of Bathrooms:</label>
+          <!-- <select id="selBaths"></select> -->
+          <select id="selBaths" ; onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="row">
+          <label for="amenities">Amenities:</label>
+          <div container="col-md-4">
+            <div class="col-md-6">
+              <input type="checkbox" id="TV" name="TV" value="Yes">
+              <lable for="TV">TV</lable></br>
+              <input type="checkbox" id="Cable_TV" name="Cable_TV" value="Yes">
+              <lable for="Cable_TV">Cable TV</lable></br>
+              <input type="checkbox" id="Internet" name="Internet" value="Yes">
+              <lable for="Internet">Internet</lable></br>
+              <input type="checkbox" id="Wifi" name="Wifi" value="Yes">
+              <lable for="Wifi">Wifi</lable></br>
+              <input type="checkbox" id="AirConditioning" name="AirConditioning" value="Yes">
+              <lable for="AirConditioning">Air Conditioning</lable></br>
+              <input type="checkbox" id="Heating" name="Heating" value="Yes">
+              <lable for="Heating">Heating</lable></br>
+              <input type="checkbox" id="Pool" name="Pool" value="Yes">
+              <lable for="Pool">Pool</lable></br>
+              <input type="checkbox" id="Kitchen" name="Kitchen" value="Yes">
+              <lable for="Kitchen">Kitchen</lable></br>
+              <input type="checkbox" id="Microwave" name="Microwave" value="Yes">
+              <lable for="Microwave">Microwave</lable></br>
+              <input type="checkbox" id="Refrigerator" name="Refrigerator" value="Yes">
+              <lable for="Refrigerator">Refrigerator</lable></br>
+              <input type="checkbox" id="Dishwasher" name="Dishwasher" value="Yes">
+              <lable for="Dishwasher">Dishwasher</lable></br>
+              <input type="checkbox" id="Oven" name="Oven" value="Yes">
+              <lable for="Oven">Oven</lable></br>
+              <input type="checkbox" id="Stove" name="Stove" value="Yes">
+              <lable for="Stove">Stove</lable></br>
+              <input type="checkbox" id="Coffee_Maker" name="Coffee_Maker" value="Yes">
+              <lable for="Coffee_Maker">Coffee Maker</lable></br>
+              <input type="checkbox" id="Free_parking" name="Free_parking" value="Yes">
+              <lable for="Free_parking">Free Parking</lable></br>
+              <input type="checkbox" id="Washer" name="Washer" value="Yes">
+              <lable for="Washer">Washer</lable></br>
+              <input type="checkbox" id="Dryer" name="Dryer" value="Yes">
+              <lable for="Dryer">Dryer</lable></br>
+              <input type="checkbox" id="Indoor_Fireplace" name="Indoor_Fireplace" value="Yes">
+              <lable for="Indoor_Fireplace">Indoor Fireplace</lable></br>
+              <input type="checkbox" id="Hot_Tub" name="Hot_Tub" value="Yes">
+              <lable for="Hot_Tub">Hot Tub</lable></br>
+            </div>
+            <div class="col-md-6">
+              <input type="checkbox" id="Bed_linens" name="Bed_linens" value="Yes">
+              <lable for="Bed_linens">Bed Linens</lable></br>
+              <input type="checkbox" id="Extra_Pillows/Blankets" name="Extra_Pillows/Blankets" value="Yes">
+              <lable for="Extra_Pillows/Blankets">Extra Pillows/Blankets</lable></br>
+              <input type="checkbox" id="Shampoo" name="Shampoo" value="Yes">
+              <lable for="Shampoo">Shampoo</lable></br>
+              <input type="checkbox" id="Hangers" name="Hangers" value="Yes">
+              <lable for="Hangers">Hangers</lable></br>
+              <input type="checkbox" id="Hair_Dryer" name="Hair_Dryer" value="Yes">
+              <lable for="Hair_Dryer">Hair Dryer</lable></br>
+              <input type="checkbox" id="Extra_Pillows/Blankets" name="Extra_Pillows/Blankets" value="Yes">
+              <lable for="Extra_Pillows/Blankets">Extra Pillows/Blankets</lable></br>
+              <input type="checkbox" id="Hair_Dryer" name="Hair_Dryer" value="Yes">
+              <lable for="Hair_Dryer">Hair Dryer</lable></br>
+              <input type="checkbox" id="Iron" name="Iron" value="Yes">
+              <lable for="Iron">Iron</lable></br>
+              <input type="checkbox" id="Extra_Pillows/Blankets" name="Extra_Pillows/Blankets" value="Yes">
+              <lable for="Extra_Pillows/Blankets">Extra Pillows/Blankets</lable></br>
+              <input type="checkbox" id="Pets_live_on_this_property" name="Pets_live_on_this_property" value="Yes">
+              <lable for="Pets_live_on_this_property">Pets Live on this Property</lable></br>
+              <input type="checkbox" id="Dog_Friendly" name="Dog_Friendly" value="Yes">
+              <lable for="Dog_Friendly">Dog Friendly</lable></br>
+              <input type="checkbox" id="Cat_Friendly" name="Cat_Friendly" value="Yes">
+              <lable for="Cat_Friendly">Cat Friendly</lable></br>
+              <input type="checkbox" id="Family/kid_Friendly" name="Family/kid_Friendly" value="Yes">
+              <lable for="Family/kid_Friendly">Family/Kid Friendly</lable></br>
+              <input type="checkbox" id="Event_Friendly" name="Event_Friendly" value="Yes">
+              <lable for="Event_Friendly">Event Friendly</lable></br>
+              <input type="checkbox" id="Smoke_Detector" name="Smoke_Detector" value="Yes">
+              <lable for="Smoke_Detector">Smoke Detector</lable></br>
+              <input type="checkbox" id="CO_Detector" name="CO_Detector" value="Yes">
+              <lable for="CO_Detector">Carbon Monoxide Detector</lable></br>
+              <input type="checkbox" id="Fire_Extinguisher" name="Fire_Extinguisher" value="Yes">
+              <lable for="Fire_Extinguisher">Fire Extinguisher</lable></br>
+            </div>
+          </div>     
+        </div>
+        <div class="container" style="height:10px"></div>
+        <div class="col-md-8">
+          <div class="row">
+            <button class="button button4">Calculate My Listing Price</button>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="col-md-8">
+          <hr class="fancyLine"></hr>
+            <p id="output-label">YOUR SUGGESTED LISTING PRICE IS:</p>
+        </div>
+      <div class="container">
+        <div class="col-md-8">
+            <output id="output">$123.45</output>
+        </div>
+      <div class="container">
+        <div class="col-md-8">
+          <hr class="fancyLine"></hr>
+          <p id="map-instructions">To find your district, enter the address of your rental in the map search bar, press Enter and then hover your mouse over the location marker.</p>
+        </div>
+        <div class="col-md-8">
+          <div class="map-width" id="map"></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <!-- API key -->
+  <script type="text/javascript" src="static/js/config.js"></script>
+  <!-- Our JavaScript -->
+  <script type="text/javascript" src="static/js/logic.js"></script>
+</body>
+
+</html>

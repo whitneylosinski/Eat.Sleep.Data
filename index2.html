@@ -1,0 +1,131 @@
+<<!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Eat.Sleep.Data Mapping</title>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            #map {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 50%;
+                height: 50%;
+            }
+        </style>
+
+
+    <body>
+        <script
+            src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+        <link rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+            type="text/css">
+        <script
+            src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+        <link rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+            type="text/css">
+        <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+        <div id="map"></div>
+    </head>
+        <script>
+            //Centering on Nashville map
+            mapboxgl.accessToken = 'pk.eyJ1Ijoia2VubGlldyIsImEiOiJja2liMzB4eXIwb2k5MnFtdjV6eXFjbDhxIn0.qQA5sH9AwnEl75gT7XuBTA'
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [-86.8, 36.2],
+                zoom: 9
+            });
+
+            map.addControl(
+                new MapboxGeocoder({
+                    accessToken: mapboxgl.accessToken,
+                    mapboxgl: mapboxgl
+                })
+
+            );
+
+            map.addControl(
+                new MapboxDirections({
+                    accessToken: mapboxgl.accessToken
+                }),
+
+                "top-left"
+            );
+
+            map.on('load', function () {
+                map.addSource("nashville", {
+                    "type": "geojson",
+                    "data": "https://raw.githubusercontent.com/whitneylosinski/Eat.Sleep.Data/main/Resources/neighbourhoods.geojson"
+                });
+
+                map.addLayer({
+                    "id": "nashville",
+                    "type": "line",
+                    "source": "nashville",
+                    "layout": {
+                        "line-join": "round",
+                        "line-cap": "round",
+                    },
+                    "paint": {
+                        "line-color": "black",
+                        "line-width": 1.5
+                    },
+
+                    //});
+                });
+
+                map.addLayer({
+                    "id": "nashville1",
+                    "type": "fill",
+                    "source": "nashville",
+                    "layout": {},
+                    "paint": {
+                        "fill-color": "blue",
+                        "fill-opacity": 0.1
+                    }
+                });
+
+                // When a click event occurs on a feature in the states layer, open a popup at the
+                // location of the click, with description HTML from its properties.
+                map.on('click', 'nashville1', function (e) {
+                    new mapboxgl.Popup()
+                        .setLngLat(e.lngLat)
+                        .setHTML(e.features[0].properties.neighbourhood)
+                        .addTo(map);
+                });
+
+                // Change the cursor to a pointer when the mouse is over the states layer.
+                map.on('mouseenter', 'nashville1', function () {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+
+                // Change it back to a pointer when it leaves.
+                map.on('mouseleave', 'nashville1', function () {
+                    map.getCanvas().style.cursor = '';
+                });
+            });
+            // Add full screen control
+            map.addControl(new mapboxgl.FullscreenControl());
+
+            // Add zoom and rotation controls to the map.
+            map.addControl(new mapboxgl.NavigationControl());
+
+
+        </script>
+
+    </body>
+
+    </html>
