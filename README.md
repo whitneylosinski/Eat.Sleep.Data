@@ -64,6 +64,19 @@ For a more indepth discussion of the MLMs, follow this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development">MLM_wiki_link</a>
 
+##  Analysis phase of project
+
+We are still doing on-going analysis as we have gotten our MLM connected to our dashboard.  The results of the model are not coming out as expected so we are further exploring the dataset and feature analysis.  Discussion of the results can be found in both the Feature Selection Wiki and discussion of the MLM model.   
+
+![Feature selection Wiki](https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Feature-Selection)
+
+In addition, some statistical analysis can be found by following this link:
+
+![Variable Analysis](https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Statistical-Analysis)
+
+
+
+
 ## Connection of draft model to Postgres Database:
 Both the draft models are linked to the Heroku postgres database and running properly as shown in the following image:
 
