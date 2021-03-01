@@ -58,6 +58,8 @@ The most updated version of our RFM can be viewed via this link:
 
 ![RFM](https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/3_permutation_and_final_RFR_test.ipynb)
 
+We have used the default split between test and training datasets (25/75).  This will be further examined as we test the results of the model.  Currently, we have determined that there is over-fitting of the model being done based on testing the MSE on the test vs trained which are pretty far apart.  So we also looked at this metric on a smaller "pruned" model which shows a similar MSE between train and test but reduces the R2 to 86%.  So we clearly have some over-fitting going on that will looked at.  
+
 For a more indepth discussion of the MLMs, follow this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development">MLM_wiki_link</a>
