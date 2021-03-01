@@ -68,11 +68,11 @@ For a more indepth discussion of the MLMs, follow this link:
 
 We are still doing on-going analysis as we have gotten our MLM connected to our dashboard.  The results of the model are not coming out as expected so we are further exploring the dataset and feature analysis.  Discussion of the results can be found in both the Feature Selection Wiki and discussion of the MLM model.
 
-![Feature selection Wiki](https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Feature-Selection)
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Feature-Selection">Feature Selection (wiki)</a>
 
 In addition, some statistical analysis can be found by following this link:
 
-![Variable Analysis](https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Statistical-Analysis)
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Statistical-Analysis">Variable Analysis</a>
 
 
 
