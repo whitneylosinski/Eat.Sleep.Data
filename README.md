@@ -57,6 +57,7 @@ Following these two baseline tests, additional tests are in the planning stage, 
 The most updated version of our RFM can be viewed via this link:
 
 ![RFM](https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/3_permutation_and_final_RFR_test.ipynb)
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/3_permutation_and_final_RFR_test.ipynb">Random Forest Regressor after feature selection</a>
 
 We have used the default split between test and training datasets (25/75).  This will be further examined as we test the results of the model.  Currently, we have determined that there is over-fitting of the model being done based on testing the MSE on the test vs trained which are pretty far apart.  So we also looked at this metric on a smaller "pruned" model which shows a similar MSE between train and test but reduces the R2 to 86%.  So we clearly have some over-fitting going on that will looked at.  
 
@@ -66,7 +67,7 @@ For a more indepth discussion of the MLMs, follow this link:
 
 ##  Analysis phase of project
 
-We are still doing on-going analysis as we have gotten our MLM connected to our dashboard.  The results of the model are not coming out as expected so we are further exploring the dataset and feature analysis.  Discussion of the results can be found in both the Feature Selection Wiki and discussion of the MLM model.   
+We are still doing on-going analysis as we have gotten our MLM connected to our dashboard.  The results of the model are not coming out as expected so we are further exploring the dataset and feature analysis.  Discussion of the results can be found in both the Feature Selection Wiki and discussion of the MLM model.
 
 ![Feature selection Wiki](https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Feature-Selection)
 
