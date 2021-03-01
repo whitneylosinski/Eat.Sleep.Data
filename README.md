@@ -56,7 +56,7 @@ Following these two baseline tests, additional tests are in the planning stage, 
 
 The most updated version of our RFM can be viewed via this link:
 
-- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/3_permutation_and_final_RFR_test.ipynb">RF Regressor Model after feature selection (wiki link)</a>
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/3_permutation_and_final_RFR_test.ipynb">RF Regressor Model after feature selection</a>
 
 We have used the default split between test and training datasets (25/75).  This will be further examined as we test the results of the model.  Currently, we have determined that there is over-fitting of the model being done based on testing the MSE on the test vs trained which are pretty far apart.  So we also looked at this metric on a smaller "pruned" model which shows a similar MSE between train and test but reduces the R2 to 86%.  So we clearly have some over-fitting going on that will looked at.  
 
