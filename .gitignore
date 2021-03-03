@@ -133,3 +133,5 @@ dmypy.json
 
 # Saved model file (>100MB)
 *.pickle
+
+merged_df.csv
