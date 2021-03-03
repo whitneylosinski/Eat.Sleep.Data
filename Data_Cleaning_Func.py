@@ -5,7 +5,7 @@ import psycopg2
 import time
 import datetime
 
-def clean_data (cal_table_raw, listing_table_raw, cal_table_to_save, lisitng_table_to_save, amenities_table_to_save):
+def clean_airbnb_data (cal_table_raw, listing_table_raw, cal_table_to_save, listing_table_to_save, amenities_table_to_save):
     conn_string = 'postgres://whnpmxwsiccrtg:53c453893549d2b1e6a4ff92e626a2a08ebcaff66678e50d33e3742f66e3e4f4@ec2-52-4-171-132.compute-1.amazonaws.com/d2ajro4cjr10lb'
     db = create_engine(conn_string)
     conn = db.connect()
@@ -83,24 +83,16 @@ def clean_data (cal_table_raw, listing_table_raw, cal_table_to_save, lisitng_tab
     # drop 'beds'  many have 0s and some nans so not descriptive
     list_data_new=list_data_new.drop(columns=['beds'])
 
-    
-    # Calculate number of days hosted
-    date1=list_data_new['last_scraped'][0]
-    date2=list_data_new['host_since'][0]
-    mdate1 = datetime.datetime.strptime(date1, "%Y-%m-%d").date()
-    rdate1 = datetime.datetime.strptime(date2, "%Y-%m-%d").date()
-    delta =  (mdate1 - rdate1).days
-
     # add new variable called "days_host" which is a calculated value of the difference between the scrape date and the host_since date
     list_data_new[['last_scraped','host_since']] = list_data_new[['last_scraped','host_since']].apply(pd.to_datetime) #if conversion required
     list_data_new['days_host'] = (list_data_new['last_scraped'] - list_data_new['host_since']).dt.days
 
     # Dropping review columns with collinearity above 0.8 besides whether it has reviews or number of reviews:
-    list_data_new = list_data_new.drop(columns=['review_scores_communication', 'is_review', 'review_scores_checkin', 'review_scores_cleanliness', 'review_scores_value', 'review_scores_location'])
+    list_data_new = list_data_new.drop(columns=['review_scores_communication', 'review_scores_checkin', 'review_scores_cleanliness', 'review_scores_value', 'review_scores_location'])
 
 
     #export cleaned lisitng data to postgres
-    list_data_new.to_sql(("{}").format(lisitng_table_to_save), con=conn, if_exists='replace', index=False)
+    list_data_new.to_sql(("{}").format(listing_table_to_save), con=conn, if_exists='replace', index=False)
 
     # Clean the amenities lists to remove spaces, quotes, parenthesis, brackets and capitals.
     amenities_df['amenities'] = amenities_df['amenities'].str.lower().str.replace(' ', '_').str.replace('"', '').str.replace('{', '').str.replace('}', '').str.replace('(', '').str.replace(')', '')
@@ -144,3 +136,5 @@ def clean_data (cal_table_raw, listing_table_raw, cal_table_to_save, lisitng_tab
 
     #export parsed amenitiy data to postgres
     amenities_df.to_sql(("{}").format(amenities_table_to_save), con=conn, if_exists='replace', index=False)
+
+    print("ETL Complete")
