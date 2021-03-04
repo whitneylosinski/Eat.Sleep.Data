@@ -132,3 +132,5 @@ dmypy.json
 
 # Ignore pickle files due to size
 *.pickle
+
+merged_df.csv
