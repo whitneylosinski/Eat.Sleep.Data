@@ -102,7 +102,7 @@ def clean_airbnb_data(cal_table_raw, listing_table_raw, cal_table_to_save, listi
         list_data_new['last_scraped'] - list_data_new['host_since']).dt.days
 
     #  replace all NaNs in review columns with 0 - note there are no real 0 reviews and there is a variable is_review to identify the fake 0 values
-    cols=['review_scores_value','review_scores_location','review_scores_checkin','review_scores_communication','review_scores_cleanliness','review_scores_rating']
+    cols=['review_scores_value','review_scores_location','review_scores_checkin','review_scores_communication','review_scores_cleanliness','review_scores_rating','reviews_per_month','review_scores_accuracy']
     list_data_new[cols]=list_data_new[cols].fillna(0)
 
     # Dropping review columns with collinearity above 0.8 besides whether it has reviews or number of reviews:
@@ -111,7 +111,7 @@ def clean_airbnb_data(cal_table_raw, listing_table_raw, cal_table_to_save, listi
 
     # export cleaned lisitng data to postgres
     list_data_new.to_sql(("{}").format(listing_table_to_save),
-                         con=conn, if_exists='replace', index=False)
+                         con=conn, if_exists='replace', index=False, method='multi')
 
     # # Clean the amenities lists to remove spaces, quotes, parenthesis, brackets and capitals.
     # amenities_df['amenities'] = amenities_df['amenities'].str.lower().str.replace(' ', '_').str.replace(
