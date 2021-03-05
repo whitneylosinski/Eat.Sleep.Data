@@ -26,7 +26,7 @@ def predict(accommodates, bedrooms, baths):
         pickle_model = pickle.load(file)
 
     # Aggregate test data and reshape
-    X_test = [accommodates,baths,bedrooms,0,0]
+    X_test = [accommodates,baths,bedrooms,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     X_test = np.array(X_test)
     X_test = X_test.reshape(1,-1)
     # Make predictions using the test data
