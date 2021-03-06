@@ -64,7 +64,7 @@ def clean_airbnb_data(cal_table_raw, listing_table_raw, cal_table_to_save, listi
                                'square_feet', 'price', 'weekly_price', 'monthly_price', 'security_deposit', 'cleaning_fee', 'number_of_reviews', 
                                'number_of_reviews_ltm', 'review_scores_rating', 'review_scores_accuracy', 'review_scores_cleanliness',  'review_scores_checkin',
                                'review_scores_communication', 'review_scores_location', 'review_scores_value', 'instant_bookable',
-                               'is_business_travel_ready', 'cancellation_policy', 'require_guest_profile_picture', 'require_guest_phone_verification',
+                               'cancellation_policy', 'require_guest_profile_picture', 'require_guest_phone_verification',
                                'has_availability', 'guests_included','availability_30','availability_60','availability_90','availability_365','reviews_per_month']]
 
     # drop the columns with mostly NaN
@@ -92,8 +92,8 @@ def clean_airbnb_data(cal_table_raw, listing_table_raw, cal_table_to_save, listi
         0)
     list_data_new['cleaning_fee'] = list_data_new['cleaning_fee'].fillna(0)
 
-    # drop 'beds'  many have 0s and some nans so not descriptive
-    list_data_new = list_data_new.drop(columns=['beds'])
+    # drop rows with NaN values for 'beds'
+    list_data_new = list_data_new.dropna(subset=['beds'])
 
     # add new variable called "days_host" which is a calculated value of the difference between the scrape date and the host_since date
     list_data_new[['last_scraped', 'host_since']] = list_data_new[[
