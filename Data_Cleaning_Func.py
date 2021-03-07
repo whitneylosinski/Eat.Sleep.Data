@@ -113,59 +113,59 @@ def clean_airbnb_data(cal_table_raw, listing_table_raw, cal_table_to_save, listi
     list_data_new.to_sql(("{}").format(listing_table_to_save),
                          con=conn, if_exists='replace', index=False, method='multi')
 
-    # # Clean the amenities lists to remove spaces, quotes, parenthesis, brackets and capitals.
-    # amenities_df['amenities'] = amenities_df['amenities'].str.lower().str.replace(' ', '_').str.replace(
-    #     '"', '').str.replace('{', '').str.replace('}', '').str.replace('(', '').str.replace(')', '')
+    # Clean the amenities lists to remove spaces, quotes, parenthesis, brackets and capitals.
+    amenities_df['amenities'] = amenities_df['amenities'].str.lower().str.replace(' ', '_').str.replace(
+        '"', '').str.replace('{', '').str.replace('}', '').str.replace('(', '').str.replace(')', '')
 
-    # # iterate over each row, parse the amenities string and assign 1 for amenities listed and 0 for amenities not listed in each row.
-    # for index, row in amenities_df.iterrows():
-    #     for amenity in row['amenities'].split(','):
-    #         amenities_df.loc[index, amenity] = 1
+    # iterate over each row, parse the amenities string and assign 1 for amenities listed and 0 for amenities not listed in each row.
+    for index, row in amenities_df.iterrows():
+        for amenity in row['amenities'].split(','):
+            amenities_df.loc[index, amenity] = 1
 
-    # amenities_df.fillna(0, inplace=True)
+    amenities_df.fillna(0, inplace=True)
 
-    # # Drop the amenities column and the column with no name.
-    # amenities_df = amenities_df.drop(columns=['amenities', ''])
+    # Drop the amenities column and the column with no name.
+    amenities_df = amenities_df.drop(columns=['amenities', ''])
 
-    # # Create a new "Kitchen_Grouped" column whose values will be the sum of the values from all the kitchen-related amenity columns:
-    # amenities_df["Kitchen_Summed"] = amenities_df[["dishes_and_silverware", "refrigerator",
-    #                                                "oven", "coffee_maker", "stove", "microwave", "dishwasher", "cooking_basics"]].sum(axis=1)
+    # Create a new "Kitchen_Grouped" column whose values will be the sum of the values from all the kitchen-related amenity columns:
+    amenities_df["Kitchen_Summed"] = amenities_df[["dishes_and_silverware", "refrigerator",
+                                                   "oven", "coffee_maker", "stove", "microwave", "dishwasher", "cooking_basics"]].sum(axis=1)
 
-    # # Any values of the new "Kitchen_Summed" column which are less than 4, replace as 0 and if 4 or more replace as a 1
-    # amenities_df["Kitchen_Grouped_Binary"] = amenities_df["Kitchen_Summed"].replace(
-    #     {0: 0, 1: 0, 2: 0, 3: 0, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1})
+    # Any values of the new "Kitchen_Summed" column which are less than 4, replace as 0 and if 4 or more replace as a 1
+    amenities_df["Kitchen_Grouped_Binary"] = amenities_df["Kitchen_Summed"].replace(
+        {0: 0, 1: 0, 2: 0, 3: 0, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1})
 
-    # # Drop the old columns:
-    # amenities_df = amenities_df.drop(columns=["Kitchen_Summed", "dishes_and_silverware", "refrigerator",
-    #                                           "oven", "coffee_maker", "stove", "microwave", "dishwasher", "cooking_basics"])
+    # Drop the old columns:
+    amenities_df = amenities_df.drop(columns=["Kitchen_Summed", "dishes_and_silverware", "refrigerator",
+                                              "oven", "coffee_maker", "stove", "microwave", "dishwasher", "cooking_basics"])
 
-    # # Sum the values from all the bathroom-related columns into one "Bathroom_Grouped" column:
-    # amenities_df["Bathroom_Summed"] = amenities_df[[
-    #     "bathroom_essentials", "bath_towel"]].sum(axis=1)
+    # Sum the values from all the bathroom-related columns into one "Bathroom_Grouped" column:
+    amenities_df["Bathroom_Summed"] = amenities_df[[
+        "bathroom_essentials", "bath_towel"]].sum(axis=1)
 
-    # # Any values less than 2, replace as 0, if 2 or more, replace with 1:
-    # amenities_df["Bathroom_Grouped_Binary"] = amenities_df["Bathroom_Summed"].replace({
-    #                                                                                   0: 0, 1: 0, 2: 1})
+    # Any values less than 2, replace as 0, if 2 or more, replace with 1:
+    amenities_df["Bathroom_Grouped_Binary"] = amenities_df["Bathroom_Summed"].replace({
+                                                                                      0: 0, 1: 0, 2: 1})
 
-    # # Drop the old columns:
-    # amenities_df = amenities_df.drop(
-    #     columns=["Bathroom_Summed", "bathroom_essentials", "bath_towel"])
+    # Drop the old columns:
+    amenities_df = amenities_df.drop(
+        columns=["Bathroom_Summed", "bathroom_essentials", "bath_towel"])
 
-    # # Create a new "Washer_Dryer_Grouped" column whose values will be the sum of the values from all the kitchen-related amenity columns:
-    # amenities_df["Laundry_Summed"] = amenities_df[[
-    #     "washer", "dryer"]].sum(axis=1)
+    # Create a new "Washer_Dryer_Grouped" column whose values will be the sum of the values from all the kitchen-related amenity columns:
+    amenities_df["Laundry_Summed"] = amenities_df[[
+        "washer", "dryer"]].sum(axis=1)
 
-    # # Any values less than 2, replace as 0, if 2 or more, replace with 1.  Note, this will only give a 1 if both washer and dryer are present.
-    # amenities_df["Laundry_Grouped_Binary"] = amenities_df["Laundry_Summed"].replace({
-    #                                                                                 0: 0, 1: 0, 2: 1})
+    # Any values less than 2, replace as 0, if 2 or more, replace with 1.  Note, this will only give a 1 if both washer and dryer are present.
+    amenities_df["Laundry_Grouped_Binary"] = amenities_df["Laundry_Summed"].replace({
+                                                                                    0: 0, 1: 0, 2: 1})
 
-    # # Drop the old columns:
-    # amenities_df = amenities_df.drop(
-    #     columns=["Laundry_Summed", "washer", "dryer"])
+    # Drop the old columns:
+    amenities_df = amenities_df.drop(
+        columns=["Laundry_Summed", "washer", "dryer"])
 
-    # # export parsed amenitiy data to postgres
-    # amenities_df.to_sql(("{}").format(amenities_table_to_save),
-    #                     con=conn, if_exists='replace', index=False)
+    # export parsed amenitiy data to postgres
+    amenities_df.to_sql(("{}").format(amenities_table_to_save),
+                        con=conn, if_exists='replace', index=False)
 
     print("ETL Complete")
     conn.close ()
