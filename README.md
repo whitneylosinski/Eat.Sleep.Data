@@ -66,6 +66,13 @@ For a more indepth discussion of the MLMs, follow this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development">MLM (wiki link)</a>
 
+## Second Round Baseline Tests:
+
+Following the initial baseline tests, our group observed that our implementation of the calendar data was causing our models to significantly overfit since the inclusion of this data required excessive duplicate entries.  Thus, we made an executive decision to drop the calendar data altogether and reform the baseline tests.  As such, we implemented four strategic model tests which included Multiple Linear Regression, Random Forest Regression, XG Boost, and Deep Neural Network tests.  By comparing the mean absolute error results obtained by these four baseline tests, it was clear that random forest regressor remained the highest performing model for our dataset.  The mean absolute error from each model allowed us to discern how much error, on average, our model obtained in predicting an accurate price.  The representative scores observed from each model is summarized below:
+
+![MAE Comparison](PNGs/Baseline_Model_Comparison_MAE.png)
+
+
 ##  Analysis phase of project
 
 We are still doing on-going analysis as we have gotten our MLM connected to our dashboard.  The results of the model are not coming out as expected so we are further exploring the dataset and feature analysis.  Discussion of the results can be found in both the Feature Selection Wiki and discussion of the MLM model.
