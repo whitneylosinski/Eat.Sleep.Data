@@ -39,7 +39,7 @@ The output label for the input data (screenshot of predicted "y") for the MLR mo
 
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/PNGs/baseline_MLR_predicted_y.png">Preliminary MLR predicted "y"</a>
 
-This initial model produced an R-squared value 0.57, which is not high enough for predictive reliability.  As such, we decided to also try a random forest regressor.  Since our data set has a large number of input variables, the RF model should be able to better separate the predictors from the non-predictors.  Some additional motivations for using a random forest regression model were as follows:
+This initial model produced an R-squared value 0.57, which is not high enough for predictive reliability.  We also ran test models using Ridge Regression, Lasso Regression and partial Least Squares Regression all of which ended up with similar results as the initial linear regression.  As such, we decided to try a random forest regressor.  Since our data set has a large number of input variables, the RF model should be able to better separate the predictors from the non-predictors.  Some additional motivations for using a random forest regression model were as follows:
 
 * They can sometimes be less prone to overfitting
 *  Can be used to rank the importance of input variables in a natural way.
@@ -47,12 +47,14 @@ This initial model produced an R-squared value 0.57, which is not high enough fo
 *  Are robust to outliers and nonlinear data.
 *  Run efficiently on large datasets
 
-From the random forest regressor, we achieved an R-squared value from a testing set of about 0.95 which was suspiciously high.  Hence, we also calculated the "adjusted" R-squared value which penalizes the original R-squared value for having excess features but even after incorporating the adjustment formula, the numerical difference from the original R-squared value was neglible.  Finally, we ran an additional calculation to determine the mean squared error which resulted in a value of about 2983.10.  This means that, on average, this model's price prediction was off by about $53.86.
+From the random forest regressor, we achieved an R-squared value from a testing set of about 0.95 which was suspiciously high.  Hence, we also calculated the "adjusted" R-squared value which penalizes the original R-squared value for having excess features but even after incorporating the adjustment formula, the numerical difference from the original R-squared value was neglible.  Finally, we ran an additional calculation to determine the mean squared error which resulted in a value of about 2983.10.  In addition, this model's mean absolute error was calculated which suggests that the price prediction is off by about $53.86 on average.
 
 To view this preliminary Random Forest Regressor model, follow the link below:
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/1_RFR_Baseline_test.ipynb">RF Regressor Model before feature selection</a>
 
-Following these two baseline tests, additional tests are in the planning stage, including tweaking of the hyperparameters, to further reduce predictive errors as well as minimize overfitting to the models.  Furthermore, the group collaborated on producing a multi-collinearity matrix which revealed numerous variables in the dataset with significantly high collinearity.  With the aid of this matrix, we have begun the process of re-examining the input variables to fine-tune the feature selection and reduction process.
+Following these two baseline tests,   
+
+additional tests are in the planning stage, including tweaking of the hyperparameters, to further reduce predictive errors as well as minimize overfitting to the models.  Furthermore, the group collaborated on producing a multi-collinearity matrix which revealed numerous variables in the dataset with significantly high collinearity.  With the aid of this matrix, we have begun the process of re-examining the input variables to fine-tune the feature selection and reduction process.
 
 The most updated version of our RFM can be viewed via this link:
 
