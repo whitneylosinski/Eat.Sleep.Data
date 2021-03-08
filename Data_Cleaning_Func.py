@@ -11,45 +11,45 @@ def clean_airbnb_data(cal_table_raw, listing_table_raw, cal_table_to_save, listi
     db = create_engine(conn_string)
     conn = db.connect()
 
-    # read in calendar data from postgres
-    cal_data = pd.read_sql_query(
-        ('select * from "{}"').format(cal_table_raw), con=conn)
+    # # read in calendar data from postgres
+    # cal_data = pd.read_sql_query(
+    #     ('select * from "{}"').format(cal_table_raw), con=conn)
 
-    # Renaming listing_id column to id to be consistent with other dataframe
-    cal_data = cal_data.rename(columns={'listing_id': 'id'})
+    # # Renaming listing_id column to id to be consistent with other dataframe
+    # cal_data = cal_data.rename(columns={'listing_id': 'id'})
 
-    # create day and month from data df.
-    cal_data['date'] = pd.to_datetime(cal_data['date'])
-    cal_data['day'] = cal_data['date'].dt.day_name()
-    cal_data['month'] = cal_data['date'].dt.month
+    # # create day and month from data df.
+    # cal_data['date'] = pd.to_datetime(cal_data['date'])
+    # cal_data['day'] = cal_data['date'].dt.day_name()
+    # cal_data['month'] = cal_data['date'].dt.month
 
-    # Converting day of the week to weekday or weekend
-    cal_data.loc[(cal_data.day == "Friday"), "day"] = 'weekend'
-    cal_data.loc[(cal_data.day == "Saturday"), "day"] = 'weekend'
-    cal_data.loc[(cal_data.day == "Monday"), "day"] = 'weekday'
-    cal_data.loc[(cal_data.day == "Tuesday"), "day"] = 'weekday'
-    cal_data.loc[(cal_data.day == "Wednesday"), "day"] = 'weekday'
-    cal_data.loc[(cal_data.day == "Thursday"), "day"] = 'weekday'
-    cal_data.loc[(cal_data.day == "Sunday"), "day"] = 'weekday'
+    # # Converting day of the week to weekday or weekend
+    # cal_data.loc[(cal_data.day == "Friday"), "day"] = 'weekend'
+    # cal_data.loc[(cal_data.day == "Saturday"), "day"] = 'weekend'
+    # cal_data.loc[(cal_data.day == "Monday"), "day"] = 'weekday'
+    # cal_data.loc[(cal_data.day == "Tuesday"), "day"] = 'weekday'
+    # cal_data.loc[(cal_data.day == "Wednesday"), "day"] = 'weekday'
+    # cal_data.loc[(cal_data.day == "Thursday"), "day"] = 'weekday'
+    # cal_data.loc[(cal_data.day == "Sunday"), "day"] = 'weekday'
 
-    # Dropped date, available, adjusted_price, minimum_nights, and maximum_nights column
-    cal_data_new = cal_data.drop(
-        ['date', 'available', 'adjusted_price', 'minimum_nights', 'maximum_nights'], axis=1)
+    # # Dropped date, available, adjusted_price, minimum_nights, and maximum_nights column
+    # cal_data_new = cal_data.drop(
+    #     ['date', 'available', 'adjusted_price', 'minimum_nights', 'maximum_nights'], axis=1)
 
-    # Remove and replace $ and ,
-    cal_data_new['price'] = cal_data_new['price'].str.replace('$', '')
-    cal_data_new['price'] = cal_data_new['price'].str.replace(',', '')
+    # # Remove and replace $ and ,
+    # cal_data_new['price'] = cal_data_new['price'].str.replace('$', '')
+    # cal_data_new['price'] = cal_data_new['price'].str.replace(',', '')
 
-    # Converting price from object to float
-    cal_data_new['price'] = cal_data_new['price'].astype(float)
+    # # Converting price from object to float
+    # cal_data_new['price'] = cal_data_new['price'].astype(float)
 
-    # Group id, day, and month and calculate mean price
-    cal_data_grouped = cal_data_new.groupby(
-        ['id', 'day', 'month']).mean().reset_index()
+    # # Group id, day, and month and calculate mean price
+    # cal_data_grouped = cal_data_new.groupby(
+    #     ['id', 'day', 'month']).mean().reset_index()
 
-    # export cleaned calendar data to postgres
-    cal_data_grouped.to_sql(("{}").format(
-        cal_table_to_save), con=conn, if_exists='replace', index=False)
+    # # export cleaned calendar data to postgres
+    # cal_data_grouped.to_sql(("{}").format(
+    #     cal_table_to_save), con=conn, if_exists='replace', index=False)
 
     # read in listing data
     list_data = pd.read_sql_query(
@@ -61,11 +61,11 @@ def clean_airbnb_data(cal_table_raw, listing_table_raw, cal_table_to_save, listi
     # keep non-descriptor columns
     list_data_new = list_data[['id', 'last_scraped', 'host_since', 'host_listings_count', 'host_is_superhost', 'host_identity_verified', 'neighbourhood_cleansed',
                                'latitude', 'longitude', 'room_type', 'property_type', 'accommodates', 'bathrooms', 'bedrooms', 'beds', 'bed_type',
-                               'square_feet', 'price', 'weekly_price', 'monthly_price', 'security_deposit', 'cleaning_fee', 'review_scores_rating',
-                               'number_of_reviews', 'review_scores_cleanliness',
-                               'review_scores_location', 'review_scores_communication', 'review_scores_checkin', 'review_scores_value', 'instant_bookable',
-                               'is_business_travel_ready', 'cancellation_policy', 'require_guest_profile_picture', 'require_guest_phone_verification',
-                               'has_availability']]
+                               'square_feet', 'price', 'weekly_price', 'monthly_price', 'security_deposit', 'cleaning_fee', 'number_of_reviews', 
+                               'number_of_reviews_ltm', 'review_scores_rating', 'review_scores_accuracy', 'review_scores_cleanliness',  'review_scores_checkin',
+                               'review_scores_communication', 'review_scores_location', 'review_scores_value', 'instant_bookable',
+                               'cancellation_policy', 'require_guest_profile_picture', 'require_guest_phone_verification',
+                               'has_availability', 'guests_included','availability_30','availability_60','availability_90','availability_365','reviews_per_month']]
 
     # drop the columns with mostly NaN
     list_data_new = list_data_new.drop(
@@ -92,8 +92,8 @@ def clean_airbnb_data(cal_table_raw, listing_table_raw, cal_table_to_save, listi
         0)
     list_data_new['cleaning_fee'] = list_data_new['cleaning_fee'].fillna(0)
 
-    # drop 'beds'  many have 0s and some nans so not descriptive
-    list_data_new = list_data_new.drop(columns=['beds'])
+    # drop rows with NaN values for 'beds'
+    list_data_new = list_data_new.dropna(subset=['beds'])
 
     # add new variable called "days_host" which is a calculated value of the difference between the scrape date and the host_since date
     list_data_new[['last_scraped', 'host_since']] = list_data_new[[
@@ -101,13 +101,17 @@ def clean_airbnb_data(cal_table_raw, listing_table_raw, cal_table_to_save, listi
     list_data_new['days_host'] = (
         list_data_new['last_scraped'] - list_data_new['host_since']).dt.days
 
+    #  replace all NaNs in review columns with 0 - note there are no real 0 reviews and there is a variable is_review to identify the fake 0 values
+    cols=['review_scores_value','review_scores_location','review_scores_checkin','review_scores_communication','review_scores_cleanliness','review_scores_rating','reviews_per_month','review_scores_accuracy']
+    list_data_new[cols]=list_data_new[cols].fillna(0)
+
     # Dropping review columns with collinearity above 0.8 besides whether it has reviews or number of reviews:
     list_data_new = list_data_new.drop(columns=['review_scores_communication', 'review_scores_checkin',
                                                 'review_scores_cleanliness', 'review_scores_value', 'review_scores_location'])
 
     # export cleaned lisitng data to postgres
     list_data_new.to_sql(("{}").format(listing_table_to_save),
-                         con=conn, if_exists='replace', index=False)
+                         con=conn, if_exists='replace', index=False, method='multi')
 
     # Clean the amenities lists to remove spaces, quotes, parenthesis, brackets and capitals.
     amenities_df['amenities'] = amenities_df['amenities'].str.lower().str.replace(' ', '_').str.replace(
@@ -164,3 +168,4 @@ def clean_airbnb_data(cal_table_raw, listing_table_raw, cal_table_to_save, listi
                         con=conn, if_exists='replace', index=False)
 
     print("ETL Complete")
+    conn.close ()
