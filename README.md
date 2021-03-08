@@ -35,7 +35,7 @@ Our preliminary model testing before the feature reduction process included two 
 
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model.ipynb">MLR Model</a>
 
-The output label for the input data (screenshot of predicted "y") for the MLR model can be viewed as follows:
+The predicted vs actual partial matrix (screenshot of predicted "y") for the MLR model can be viewed in this link:
 
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/PNGs/baseline_MLR_predicted_y.png">Preliminary MLR predicted "y"</a>
 
