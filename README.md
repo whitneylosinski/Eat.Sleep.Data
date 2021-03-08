@@ -98,6 +98,10 @@ Following the initial baseline tests, our group observed that our addition of th
 
 ![MAE Comparison](PNGs/Baseline_Model_Comparison_MAE.png)
 
+
+## Model Benefits and Limitations:
+As shown above, the Random Forest Regressor performed the best under these controlled conditions and, consequently, was chosen as our model basis.  Of course, all of these model appear limited in their ability to predict the target with extreme accuracy.  Nevertheless, the airbnb data itself had many inconsistencies and Random Forest Regressor demonstrated its prowess above the competitors.  This may be due to the fact that one benefit of this type of ensemble-based model is that it can fare quite well against over-fitting.
+
 ## Feature Reduction:
 
 After the second round of baseline model tests which allowed us to select random forest regression as the basis of our model, we were still left with 265 features for predicting our target value of price.  Hence, we employed a final feature reduction step to rank the relative "importance" of each feature in order to determine the best predictors of our target and, thus, reduce the number of features accordingly.  This, in turn, would allow a user in our web app to be able to select from a more reasonably condensed version of features to predict the price.  Specifically, we chose to employ the Scikit-learn's Permutation Feature Importance method as it is considered less prone to over-valuing low importance features when a model is prone to over-fitting. The permutation method does this by randomizing each feature and measuring the error of the model before and after to measure importance.  In short, since our model had already shown signs of overfitting, the permutation method was deemed a good choice.  The results from the feature selection offered the following top twelve columns ranked by importance:
@@ -106,7 +110,7 @@ After the second round of baseline model tests which allowed us to select random
 
 ## Random Forest Regressor Model Results:
 
-By re-running the random forest regressor on these top twelve features alone, the model was able to obtain a mean absolute value of 57.66.  This indicates that our model is currently able to predict our target with some accuracy but is, on average, off by about $57.66.  The group is currently working to further analyze and improve these results.  Nevertheless, this current result provides a working model for our dynamic website.
+By re-running the random forest regressor on these top twelve features alone, the model was able to obtain a mean absolute value of 57.66.  This indicates that our model is currently able to predict our target with some accuracy but is, on average, off by about $57.66.  The group is currently working to further analyze and improve these results while minimizing overfitting.  Nevertheless, this current result provides a working model for our dynamic website.
 
 ## Communication Protocols:
 Our team is using the following mediums for communication purposes:
