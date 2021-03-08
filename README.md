@@ -107,7 +107,7 @@ After the second round of baseline model tests which allowed us to select random
 
 ![Top 12](PNG/../PNGs/top_12.png)
 
-# RFR Model Results:
+## Random Forest Regressor Model Results:
 
 By re-running the random forest regressor on these top twelve features alone, the model was able to obtain a mean absolute value of 57.66.  This indicates that our model is currently able to predict our target with some accuracy but is, on average, off by about $57.66.  The group is currently working to further analyze and improve these results.  Nevertheless, this current result provides a working model for our dynamic website.
 
