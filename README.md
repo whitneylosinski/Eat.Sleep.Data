@@ -95,7 +95,7 @@ To make the functional dashboard, the team developed a Flask application that is
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Flask-App-via-Heroku">Flask Integration</a>
 
 
-## Second Round Baseline Model Tests:
+## Second Round Machine Learning Model Tests:
 
 Following the initial baseline tests, our group observed that our implementation of the calendar data was causing our models to significantly overfit since the inclusion of this data required excessive duplicate entries.  Thus, we made an executive decision to drop the calendar data altogether and reform the baseline tests.  As such, we implemented four strategic model tests which included Multiple Linear Regression, Random Forest Regression, XG Boost, and Deep Neural Network tests.  By comparing the mean absolute error results obtained by these four baseline tests, it was clear that random forest regressor remained the best performing model for our dataset.  The mean absolute error metric compared from each model allowed us to discern how much error, on average, our model obtained in predicting an accurate price.  The representative scores observed from each model is summarized below:
 
