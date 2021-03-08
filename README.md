@@ -35,9 +35,8 @@ Our preliminary model testing before the feature reduction process included two 
 
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/mlr_model/mlr_model.ipynb">MLR Model</a>
 
-The output label for the input data (screenshot of predicted "y") for the MLR model can be viewed as follows:
-
-- <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/PNGs/baseline_MLR_predicted_y.png">Preliminary MLR predicted "y"</a>
+The predicted vs actual partial matrix (screenshot of predicted "y") for the MLR model shown below illustrates the poor fit of the linear regression model.  
+![](https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/PNGs/MLR_actualvsexpected.PNG)
 
 This initial model produced an R-squared value 0.57, which is not high enough for predictive reliability.  We also ran test models using Ridge Regression, Lasso Regression and partial Least Squares Regression all of which ended up with similar results as the initial linear regression.  As such, we decided to try a random forest regressor.  Since our data set has a large number of input variables, the RF model should be able to better separate the predictors from the non-predictors.  Some additional motivations for using a random forest regression model were as follows:
 
@@ -52,15 +51,13 @@ From the random forest regressor, we achieved an R-squared value from a testing 
 To view this preliminary Random Forest Regressor model, follow the link below:
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/1_RFR_Baseline_test.ipynb">RF Regressor Model before feature selection</a>
 
-Following these two baseline tests,   
-
-additional tests are in the planning stage, including tweaking of the hyperparameters, to further reduce predictive errors as well as minimize overfitting to the models.  Furthermore, the group collaborated on producing a multi-collinearity matrix which revealed numerous variables in the dataset with significantly high collinearity.  With the aid of this matrix, we have begun the process of re-examining the input variables to fine-tune the feature selection and reduction process.
+Following these two baseline tests, the group collaborated on producing a multi-collinearity matrix which revealed numerous variables in the dataset with significantly high collinearity.  With the aid of this matrix, we reduced some variables with bucketing and reran the models for only slight improvement. Additional study by looking at metrics separately on the test versus training datasets has revealed that there is a significant degree of "overfitting" being done by the RF model.   
 
 The most updated version of our RFM can be viewed via this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/3_permutation_and_final_RFR_test.ipynb">RF Regressor Model after feature selection</a>
 
-We have used the default split between test and training datasets (25/75).  This will be further examined as we test the results of the model.  Currently, we have determined that there is over-fitting of the model being done based on testing the MSE on the test vs trained which are pretty far apart.  So we also looked at this metric on a smaller "pruned" model which shows a similar MSE between train and test but reduces the R2 to 86%.  So we clearly have some over-fitting going on that will looked at.  
+We have used the default split between test and training datasets (25/75).  This will be further examined as we test the results of the model.  Because of the overfitting, we also looked at the metricc on a smaller "pruned" model which shows and improved similar MSE between train and test but reduces the R2 to 86%.  So we clearly have some over-fitting going on that will looked at.  
 
 For a more indepth discussion of the MLMs, follow this link:
 
@@ -69,7 +66,7 @@ For a more indepth discussion of the MLMs, follow this link:
 
 ##  Analysis phase of project
 
-We are still doing on-going analysis as we have gotten our MLM connected to our dashboard.  The results of the model are not coming out as expected so we are further exploring the dataset and feature analysis.  Discussion of the results can be found in both the Feature Selection Wiki and discussion of the MLM model.
+We are still doing on-going analysis of our model while developing the connections to and finalizing the dashboard.  The results of the model are not coming out as expected so we are further exploring the dataset and feature analysis.  Discussion of the results can be found in both the Feature Selection Wiki and discussion of the MLM model.
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Feature-Selection">Feature Selection (wiki link)</a>
 
@@ -97,7 +94,7 @@ To make the functional dashboard, the team developed a Flask application that is
 
 ## Second Round of Machine Learning Model Tests:
 
-Following the initial baseline tests, our group observed that our implementation of the calendar data was causing our models to significantly overfit since the inclusion of this data required excessive duplicate entries.  Thus, we made an executive decision to drop the calendar data altogether and reform the baseline tests.  As such, we implemented four strategic model tests which included Multiple Linear Regression, Random Forest Regression, XG Boost, and Deep Neural Network tests.  By comparing the mean absolute error results obtained by these four baseline tests, it was clear that random forest regressor remained the best performing model for our dataset.  The mean absolute error metric compared from each model allowed us to discern how much error, on average, our model obtained in predicting an accurate price.  The representative scores observed from each model is summarized below:
+Following the initial baseline tests, our group observed that our addition of the calendar date data was causing our models to significantly overfit since the inclusion of this data required excessive duplicate entries.  Thus, we made an executive decision to drop the calendar data altogether and reform the baseline tests.  As such, we implemented four strategic model tests which included Multiple Linear Regression, Random Forest Regression, XG Boost, and Deep Neural Network tests.  By comparing the mean absolute error results obtained by these four baseline tests, it was clear that random forest regressor remained the best performing model for our dataset.  The mean absolute error metric compared from each model allowed us to discern how much error, on average, our model obtained in predicting an accurate price.  The representative scores observed from each model is summarized below:
 
 ![MAE Comparison](PNGs/Baseline_Model_Comparison_MAE.png)
 
