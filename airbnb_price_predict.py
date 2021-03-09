@@ -15,18 +15,44 @@ def model_loss_accuracy():
     results = f"Loss: {model_loss}, Accuracy: {model_accuracy}"
     return results
 
-def predict(accommodates, bedrooms, baths):
+def predict(district,accommodates, bedrooms, baths, host_listings_count,security_deposit,cleaning_fee,reviews_ltm,host_days,essentials_chk):
     # Clean inputs from webpage
-    
+    # ['host_listings_count', 'accommodates', 'bathrooms', 'bedrooms',
+    #    'security_deposit', 'cleaning_fee', 'number_of_reviews_ltm',
+    #    'reviews_per_month', 'days_host', 'essentials',
+    #    'neighbourhood_cleansed_District 19']
     # Test opening saved model and run prediction
     import pickle
-    filename = 'rfr_model_post_feat_sel.pickle'
+    filename = 'rfr_model_post_feat_sel_2.pickle'
 
     with open(filename, 'rb') as file:
         pickle_model = pickle.load(file)
 
+    if (district==19):
+        neighbourhood_cleansed_District_19 = 1
+    else:
+        neighbourhood_cleansed_District_19 = 0
+
+    if (host_listings_count==0):
+        host_listings_count=1
+
+    if (host_days==0):
+        host_days=2
+    
+    if (essentials_chk == 'essentials'):
+        essentials = 1
+    else:
+        essentials = 0
+    #  host_listings_count = 76
+    # security_deposit = 183
+    # cleaning_fee = 96
+    # number_of_reviews_ltm = 23
+    reviews_per_month = int(reviews_ltm)/12
+    # days_host = 1199
+    # essentials = 1
+    neighbourhood_cleansed_District_19 = 0
     # Aggregate test data and reshape
-    X_test = [accommodates,baths,bedrooms,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    X_test = [host_listings_count,accommodates,baths,bedrooms,security_deposit,cleaning_fee,reviews_ltm,reviews_per_month,host_days,essentials,neighbourhood_cleansed_District_19]
     X_test = np.array(X_test)
     X_test = X_test.reshape(1,-1)
     # Make predictions using the test data
