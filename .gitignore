@@ -132,7 +132,7 @@ dmypy.json
 
 # Ignore pickle files due to size
 # rfr_model_post_feat_sel.pickle
-*.pickle
+#  *.pickle
 
 merged_df.csv
 results_df.csv
