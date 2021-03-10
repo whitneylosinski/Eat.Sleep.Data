@@ -28,7 +28,7 @@ def predict(district,accommodates, bedrooms, baths, host_listings_count,security
     with open(filename, 'rb') as file:
         pickle_model = pickle.load(file)
 
-    if (district==19):
+    if (int(district)==19):
         neighbourhood_cleansed_District_19 = 1
     else:
         neighbourhood_cleansed_District_19 = 0
@@ -50,14 +50,14 @@ def predict(district,accommodates, bedrooms, baths, host_listings_count,security
     reviews_per_month = int(reviews_ltm)/12
     # days_host = 1199
     # essentials = 1
-    neighbourhood_cleansed_District_19 = 0
+    # neighbourhood_cleansed_District_19 = 0
     # Aggregate test data and reshape
     X_test = [host_listings_count,accommodates,baths,bedrooms,security_deposit,cleaning_fee,reviews_ltm,reviews_per_month,host_days,essentials,neighbourhood_cleansed_District_19]
     X_test = np.array(X_test)
     X_test = X_test.reshape(1,-1)
     # Make predictions using the test data
     result = pickle_model.predict(X_test)
-    return round(result[0],2)
+    return int(round(result[0],0))
 
 def addition(input1, input2):
     result = input1 + input2

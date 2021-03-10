@@ -31,7 +31,17 @@ def my_form_post():
     result = airbnb_price_predict.predict(district,accommodates, bedrooms, baths, host_listings_count,security_deposit,cleaning_fee,reviews_ltm,host_days,essentials_chk)
     return render_template(
         "index.html",
-        result = result
+        result = result,
+        district = district,
+        accommodates = accommodates,
+        bedrooms = bedrooms,
+        baths = baths,
+        host_listings_count = host_listings_count,
+        security_deposit = security_deposit,
+        cleaning_fee = cleaning_fee,
+        reviews_ltm = reviews_ltm,
+        host_days = host_days,
+        essentials_chk = essentials_chk,
     )
 
 if __name__ == "__main__":

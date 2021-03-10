@@ -50,41 +50,41 @@
         <div class="form-group">
           <label for="district">District:</label>
           <select name="selDistrict">
-            <option value="other">1</option>
-            <option value="other">2</option>
-            <option value="other">3</option>
-            <option value="other">4</option>
-            <option value="other">5</option>
-            <option value="other">6</option>
-            <option value="other">7</option>
-            <option value="other">8</option>
-            <option value="other">9</option>
-            <option value="other">10</option>
-            <option value="other">11</option>
-            <option value="other">12</option>
-            <option value="other">13</option>
-            <option value="other">14</option>
-            <option value="other">15</option>
-            <option value="other">16</option>
-            <option value="other">17</option>
-            <option value="other">18</option>
-            <option value="19">19</option>
-            <option value="other">20</option>
-            <option value="other">21</option>
-            <option value="other">22</option>
-            <option value="other">23</option>
-            <option value="other">24</option>
-            <option value="other">25</option>
-            <option value="other">26</option>
-            <option value="other">27</option>
-            <option value="other">28</option>
-            <option value="other">29</option>
-            <option value="other">30</option>
-            <option value="other">31</option>
-            <option value="other">32</option>
-            <option value="other">33</option>
-            <option value="other">34</option>
-            <option value="other">35</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+            <option value=11>11</option>
+            <option value=12>12</option>
+            <option value=13>13</option>
+            <option value=14>14</option>
+            <option value=15>15</option>
+            <option value=16>16</option>
+            <option value=17>17</option>
+            <option value=18>18</option>
+            <option value=19>19</option>
+            <option value=20>20</option>
+            <option value=21>21</option>
+            <option value=22>22</option>
+            <option value=23>23</option>
+            <option value=24>24</option>
+            <option value=25>25</option>
+            <option value=26>26</option>
+            <option value=27>27</option>
+            <option value=28>28</option>
+            <option value=29>29</option>
+            <option value=30>30</option>
+            <option value=31>31</option>
+            <option value=32>32</option>
+            <option value=33>33</option>
+            <option value=34>34</option>
+            <option value=35>35</option>
           </select>
         </div>
         <!-- <div class="form-group">         
@@ -164,17 +164,22 @@
             </select>
         </div>
         <div class="form-group">
-          <label for="host_listings_count">Number of Other Listings You Host(Enter 0 if this is your first listing):</label>
-          <input type="text" name="host_listings_count">
-        </div>
-        <div class="form-group">
           <label for="security_deposit">Security Deposit:</label>
           <input type="text" name="security_deposit">
         </div>   
         <div class="form-group">
           <label for="cleaning_fee">Cleaning Fee:</label>
           <input type="text" name="cleaning_fee">
-        </div>   
+        </div>  
+        <div class="form-group">
+          <label for="has_essentials">Have Essentials?</label>
+          <input type="checkbox" name="essentials_chk" value='essentials'>
+          <input type="hidden" name="essentials_chk" value="0">
+        </div>      
+        <div class="form-group">
+          <label for="host_listings_count">Number of Other Listings You Host(Enter 0 if this is your first listing):</label>
+          <input type="text" name="host_listings_count" value={{host_listings_count}}>
+        </div>
         <div class="form-group">
           <label for="reviews_ltm">Number of Reviews in Last 12 Months (0 if new listing):</label>
           <input type="text" name="reviews_ltm">
@@ -182,12 +187,7 @@
         <div class="form-group">
           <label for="host_days">Number of Days You have been Host(Enter 0 if this is your first listing):</label>
           <input type="text" name="host_days">
-        </div>
-        <div class="form-group">
-          <label for="has_essentials">Have Essentials?</label>
-          <input type="checkbox" name="essentials_chk" value='essentials'>
-          <input type="hidden" name="essentials_chk" value="0">
-        </div>        
+        </div>   
         <div class="container" style="height:10px"></div>
         <div class="col-md-8">
           <div class="row">
