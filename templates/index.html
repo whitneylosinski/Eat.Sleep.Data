@@ -112,26 +112,29 @@
         <div class="form-group">
           <label for="accommodates">Accommodates:</label>
           <select name="selAccommodates">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
           </select>
         </div>
         <div class="form-group">
           <label for="number_of_bedrooms">Number of Bedrooms:</label>
           <select name="selBedrooms">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
           </select>
         </div>
         <!-- <div class="form-group">
@@ -161,32 +164,33 @@
               <option value="4">4</option>
               <option value="4.5">4.5</option>
               <option value="5">5</option>
+              <option value="5.5">5.5</option>
+              <option value="6">6</option>
             </select>
         </div>
         <div class="form-group">
           <label for="security_deposit">Security Deposit:</label>
-          <input type="text" name="security_deposit">
+          <input type="text" name="security_deposit" value={{security_deposit}}>
         </div>   
         <div class="form-group">
           <label for="cleaning_fee">Cleaning Fee:</label>
-          <input type="text" name="cleaning_fee">
+          <input type="text" name="cleaning_fee" value={{cleaning_fee}}>
         </div>  
         <div class="form-group">
-          <label for="has_essentials">Have Essentials?</label>
-          <input type="checkbox" name="essentials_chk" value='essentials'>
-          <input type="hidden" name="essentials_chk" value="0">
+          <label for="guests_included">Guests Included in Price</label>
+          <input type="text" name="guests_included" value={{guests_included}}>
         </div>      
         <div class="form-group">
-          <label for="host_listings_count">Number of Other Listings You Host(Enter 0 if this is your first listing):</label>
+          <label for="host_listings_count">Number of Other Listings You Host<br>(0 if first listing):</label>
           <input type="text" name="host_listings_count" value={{host_listings_count}}>
         </div>
         <div class="form-group">
-          <label for="reviews_ltm">Number of Reviews in Last 12 Months (0 if new listing):</label>
-          <input type="text" name="reviews_ltm">
+          <label for="number_of_reviews">Number of Reviews<br>(0 if new listing):</label>
+          <input type="text" name="number_of_reviews" value={{number_of_reviews}}>
         </div>   
         <div class="form-group">
-          <label for="host_days">Number of Days You have been Host(Enter 0 if this is your first listing):</label>
-          <input type="text" name="host_days">
+          <label for="reviews_per_month">Avg Reviews Per Month<br>(0 if new listing):</label>
+          <input type="text" name="reviews_per_month" value={{reviews_per_month}}>
         </div>   
         <div class="container" style="height:10px"></div>
         <div class="col-md-8">
