@@ -15,7 +15,7 @@ Click the following link to view the full initial project proposal.  Note that t
 ## Reason for Selecting this Topic:
 In order to find a project, the team scoured Kaggle datasets and other internet sources of data to find potential projects that were of interest to each member.  These potential projects and the associated datasets were added to a shared spreadsheet.  After collecting a number of potential projects, team members voted on the ones they were most interested in, ranking their top three choices.  The project that received the highest score was the Airbnb proposal.  This was initially proposed by a member who mentioned they had been thinking about hosting an Airbnb in their home and thought it might be interesting to find out how much rent they could get for it.  The abundance of data available in open sources for Airbnb also makes this a more manageable project to develop.  
 
-## Questions we Hope to Answer with the Data:
+## Questions We Hope to Answer with the Data:
 Looking at the wide variety of data available, the team is interested in exploring how the price charged relates to various features of the dataset.  While we are initially exploring all of the variables available, the big question is what really makes a difference in the price that an Airbnb can command.  Here are some of the biggest features we hope to sort out:
 
 * Neighborhood
@@ -40,7 +40,7 @@ The predicted vs actual partial matrix (screenshot of predicted "y") for the MLR
 
 This initial model produced an R-squared value 0.57, which is not high enough for predictive reliability.  We also ran test models using Ridge Regression, Lasso Regression and partial Least Squares Regression all of which ended up with similar results as the initial linear regression.  As such, we decided to try a random forest regressor.  Since our data set has a large number of input variables, the RF model should be able to better separate the predictors from the non-predictors.  Some additional motivations for using a random forest regression model were as follows:
 
-* They can sometimes be less prone to overfitting
+*  They can sometimes be less prone to overfitting
 *  Can be used to rank the importance of input variables in a natural way.
 *  Can handle thousands of input variables without variable deletion.
 *  Are robust to outliers and nonlinear data.
@@ -57,7 +57,7 @@ The most updated version of our RFM can be viewed via this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/3_permutation_and_final_RFR_test.ipynb">RF Regressor Model after feature selection</a>
 
-We have used the default split between test and training datasets (25/75).  This will be further examined as we test the results of the model.  Because of the overfitting, we also looked at the metricc on a smaller "pruned" model which shows and improved similar MSE between train and test but reduces the R2 to 86%.  So we clearly have some over-fitting going on that will looked at.  
+We have used the default split between test and training datasets (25/75).  Because of the model overfitting, we also looked at the metric on a smaller "pruned" model which shows an improved but similar MSE between train and test but reduces the R2 to 86%.  So we clearly have some over-fitting going on that will looked at.  
 
 For a more indepth discussion of the MLMs, follow this link:
 
@@ -66,7 +66,7 @@ For a more indepth discussion of the MLMs, follow this link:
 
 ##  Analysis phase of project
 
-We are still doing on-going analysis of our model while developing the connections to and finalizing the dashboard.  The results of the model are not coming out as expected so we are further exploring the dataset and feature analysis.  Discussion of the results can be found in both the Feature Selection Wiki and discussion of the MLM model.
+On-going analysis of model results shows that there may be more issues with the data than originally identified.  Discussion of the results can be found in both the Feature Selection Wiki and discussion of the MLM model.
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Feature-Selection">Feature Selection (wiki link)</a>
 
@@ -78,12 +78,12 @@ In addition, some statistical analysis can be found by following this link:
 
 
 ## Connection of draft model to Postgres Database:
-Both the draft models are linked to the Heroku postgres database and running properly as shown in the following image:
+The models link to the Heroku postgres database as shown in the following image:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Database">Postgres Database Example</a>
 
 ## Dashboard
-Our initial schema for our dashboard can be seen at the following link, along with a description of how the user will ineract with the web app.
+Our initial schema for our dashboard can be seen through the following link, along with a description of how the user will interact with the web app.
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Dashboard">Dashboard</a>
 
@@ -94,7 +94,7 @@ To make the functional dashboard, the team developed a Flask application that is
 
 ## Second Round of Machine Learning Model Tests:
 
-Following the initial baseline tests, our group observed that our addition of the calendar date data was causing our models to significantly overfit since the inclusion of this data required excessive duplicate entries.  Thus, we made an executive decision to drop the calendar data altogether and reform the baseline tests.  As such, we implemented four strategic model tests which included Multiple Linear Regression, Random Forest Regression, XG Boost, and Deep Neural Network tests.  By comparing the mean absolute error results obtained by these four baseline tests, it was clear that random forest regressor remained the best performing model for our dataset.  For each model test, the cleaned and "one-hot-encoded" data was pulled from Postgres tables, split using Scikit-learn's train_test_split method, and each subsequent model was compared with similar accuracy-based metrics.  In particular, the mean absolute error metric from each model allowed us to discern how much error, on average, our model obtained in predicting an accurate price.  The representative scores observed from each model is summarized below:
+Following the initial baseline tests, our group observed that the addition of the calendar date data was causing our models to significantly overfit since the inclusion of this data required excessive duplicate entries.  The CY data provides the price for rental by each month and weekend versus weekday with all other features staying the same for the individual location.  Many rentals do not change the price seasonally or for weekends so this creates 24 of the same rows for one rental.  Thus, we made an executive decision to drop the calendar data altogether and reform the baseline tests.  As such, we implemented four strategic model tests which included Multiple Linear Regression, Random Forest Regression, XG Boost, and Deep Neural Network tests.  By comparing the mean absolute error results obtained by these four baseline tests, it was clear that random forest regressor remained the best performing model for our dataset.  For each model test, the cleaned and "one-hot-encoded" data was pulled from Postgres tables, split using Scikit-learn's train_test_split method, and each subsequent model was compared with similar accuracy-based metrics.  In particular, the mean absolute error metric from each model allowed us to discern how much error, on average, our model obtained in predicting an accurate price.  The representative scores observed from each model is summarized below:
 
 ![MAE Comparison](PNGs/Baseline_Model_Comparison_MAE.png)
 
@@ -110,7 +110,7 @@ After the second round of baseline model tests which allowed us to select random
 
 ## Random Forest Regressor Model Results:
 
-By re-running the random forest regressor on these top twelve features alone, the model was able to obtain a mean absolute value of 57.66.  This indicates that our model is currently able to predict our target with some accuracy but is, on average, off by about $57.66.  The group is currently working to further analyze and improve these results while minimizing overfitting.  Nevertheless, this current result provides a working model for our dynamic website.
+By re-running the random forest regressor on these top twelve features alone, the model was able to obtain a mean absolute value of 57.66.  This indicates that our model is currently able to predict our target with some accuracy but is, on average, off by about $57.66.   Nevertheless, this current result provides a working model for our dynamic website.
 
 ## Communication Protocols:
 Our team is using the following mediums for communication purposes:
@@ -119,6 +119,14 @@ Our team is using the following mediums for communication purposes:
  - **Trello** - for organizing and documenting tasks.
  - **Github** - for programming and collaborative work. 
    *   Branches - team members have decided to forgo individual named branches and create topic based branches.  Any member named branches are used for their own discovery and scribbles. 
+
+## Requirements File
+
+The link to our requirements file is
+
+
+
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Flask_Setup/requirements.txt">Requirements</a>
 
 
 ## Presentation
