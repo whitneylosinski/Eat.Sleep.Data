@@ -122,9 +122,11 @@ Our team is using the following mediums for communication purposes:
 
 ## Requirements File
 
-The link to our requirements file is:
+The link to our requirements file is
 
-![](https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Flask_Setup/requirements.txt)
+
+
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Flask_Setup/requirements.txt">Requirements</a>
 
 
 ## Presentation
