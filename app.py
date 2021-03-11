@@ -32,7 +32,7 @@ def my_form_post():
     district = int(request.form['selDistrict'])
     accommodates = int(request.form['selAccommodates'])
     bedrooms = int(request.form['selBedrooms'])
-    baths = int(request.form['selBaths'])
+    baths = float(request.form['selBaths'])
     host_listings_count = int(request.form['host_listings_count'])
     security_deposit = int(request.form['security_deposit'])
     cleaning_fee = int(request.form['cleaning_fee'])
