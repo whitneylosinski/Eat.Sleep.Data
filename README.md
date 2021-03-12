@@ -5,6 +5,9 @@
 ## Project Overview
 The purpose of this project is to analyze historical Airbnb data with machine learning models to predict the expected rental price of a given space based on location, size, amenities, reviews, host performance, and other relevant variables. This prediction model will be incorporated in a tool for property owners to use to determine the suggested rental price for their space. The model will incorporate seasonal trends and weekday versus weekend premiums to adjust the suggested price for the dates the space will be listed. Due to the short timeline for this project, the scope will be limited to the Nashville, TN market. 
 
+Link to Web App: <a href = "https://airbnb-price-prediction-stage.herokuapp.com/">Airbnb Price Predictor</a></br>
+Link to analysis: <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Airbnb_Analysis.ipynb">Airbnb_Analysis</a>
+
 **Team members:** Alex Conerly, Alex Felice, Betsy Wellington, Hannah Koivisto, Ken Liew, Whitney Losinski
 <hr>
 
