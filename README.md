@@ -102,7 +102,7 @@ To make the functional dashboard, the team developed a Flask application that is
 
 Following the initial baseline tests, our group observed that the addition of the calendar date data was causing our models to significantly overfit since the inclusion of this data required excessive duplicate entries.  The CY data provides the price for rental by each month and weekend versus weekday with all other features staying the same for the individual location.  Many rentals do not change the price seasonally or for weekends so this creates 24 of the same rows for one rental.  Thus, we made an executive decision to drop the calendar data altogether and reform the baseline tests.  As such, we implemented four strategic model tests which included Multiple Linear Regression, Random Forest Regression, XG Boost, and Deep Neural Network tests.  By comparing the mean absolute error results obtained by these four baseline tests, it was clear that random forest regressor remained the best performing model for our dataset.  For each model test, the cleaned and "one-hot-encoded" data was pulled from Postgres tables, split using Scikit-learn's train_test_split method, and each subsequent model was compared with similar accuracy-based metrics.  In particular, the mean absolute error metric from each model allowed us to discern how much error, on average, our model obtained in predicting an accurate price.  The representative scores observed from each model is summarized below:
 
-![MAE Comparison](PNGs/Baseline_Model_Comparison_MAE.png)
+![MAE Comparison](PNGs/baseline4modelMAE.png)
 
 
 ## Model Benefits and Limitations:
@@ -116,7 +116,9 @@ After the second round of baseline model tests which allowed us to select random
 
 ## Random Forest Regressor Model Results:
 
-By re-running the random forest regressor on these top ten features alone, the model was able to obtain a mean absolute value of 57.57.  This indicates that our model is currently able to predict our target with some accuracy but is, on average, off by about $57.57.   Nevertheless, this current result provides a working model for our dynamic website.
+By re-running the random forest regressor on these top ten features alone, the model was able to obtain a mean absolute value of 57.57.  Deep learning models were also tested once more but the RFR still produced slightly better results.  This indicates that our best model remained the Random Forest Regressor and is currently able to predict our target with some accuracy but is, on average, off by about $57.57.   Nevertheless, this current result provides a working model for our dynamic website.
+
+![Final Model Comparison](PNGs/)
 
 ## Communication Protocols:
 Our team is using the following mediums for communication purposes:
