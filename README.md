@@ -104,6 +104,11 @@ Following the initial baseline tests, our group observed that the addition of th
 
 ![MAE Comparison](PNGs/baseline4modelMAE.png)
 
+To see the notebooks for each baseline model tests follow these links:
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Machine_Learning_Notebooks/100_Baseline_MLR_on_clean_data.ipynb">Baseline Multiple Linear Regresion Tests Notebook</a>
+- - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Machine_Learning_Notebooks/101_Baseline_RFR_on_clean_data.ipynb">Baseline Random Forest Regressor Tests Notebook</a>
+- - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Machine_Learning_Notebooks/102_Baseline_XGboost_on_clean_data.ipynb">Baseline XG Boost Tests Notebook</a>
+- - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Machine_Learning_Notebooks/103_Baseline_Deep_NN_on_clean_data.ipynb">Baseline Deep Neural Network Tests Notebook</a>
 
 ## Model Benefits and Limitations:
 As shown above, the Random Forest Regressor performed the best under these controlled conditions and, consequently, was chosen as our model basis.  Of course, all of these models appear limited in their ability to predict the target with extreme accuracy.  Nevertheless, the airbnb data itself has many inconsistencies and Random Forest Regressor demonstrated its prowess above the competitors.  This may be due to the fact that one benefit of this type of ensemble-based model is that it can fare quite well against over-fitting.
