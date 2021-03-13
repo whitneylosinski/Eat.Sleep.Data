@@ -125,6 +125,10 @@ By re-running the random forest regressor on these top ten features alone, the m
 
 ![Final Model Comparison](PNGs/finalcomparisonRFRvsDeepNN.png)
 
+To view the RFR and Deep NN comparison notebooks follow these links:
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Machine_Learning_Notebooks/200_Clean_Feat_Sel_and_Final_RFR.ipynb">Feature Reduction and Final RFR Tests Notebook</a>
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Machine_Learning_Notebooks/203_Clean_Feat_Sel_and_Final_DNN.ipynb">Feature Selection and Final Deep NN Tests Notebook</a>
+
 ## Communication Protocols:
 Our team is using the following mediums for communication purposes:
  - **Discord** - for messaging and basic communication.  Our discord board includes a "general" tab for informational messages, a "data-discovery" tab for information on datasets, and "important_and_useful_links" for the links to the sourced database, the Postgres database, the web app and any other important links.  We also have the ever important "off-topic" tab for general socializing.
