@@ -41,7 +41,10 @@ Our preliminary model testing before the feature reduction process included two 
 The predicted vs actual partial matrix (screenshot of predicted "y") for the MLR model shown below illustrates the poor fit of the linear regression model.  
 ![](https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/PNGs/MLR_actualvsexpected.PNG)
 
-This initial model produced an R-squared value 0.57, which is not high enough for predictive reliability.  We also ran test models using Ridge Regression, Lasso Regression and partial Least Squares Regression all of which ended up with similar results as the initial linear regression.  As such, we decided to try a random forest regressor.  Since our data set has a large number of input variables, the RF model should be able to better separate the predictors from the non-predictors.  Some additional motivations for using a random forest regression model were as follows:
+This initial linearRegressor model produced an R-squared value 0.57, which is not high enough for predictive reliability.  We also ran test models using Ridge Regression, Lasso Regression and partial Least Squares Regression all of which ended up with similar results as the initial linear regression.  
+
+
+Because we could not improve on the linear regression without more data cleaning, we also wanted to try a random forest regressor.  Since our data set has a large number of input variables, the RF model should be able to better separate the predictors from the non-predictors.  Some additional motivations for using a random forest regression model were as follows:
 
 *  They can sometimes be less prone to overfitting
 *  Can be used to rank the importance of input variables in a natural way.
@@ -49,7 +52,7 @@ This initial model produced an R-squared value 0.57, which is not high enough fo
 *  Are robust to outliers and nonlinear data.
 *  Run efficiently on large datasets
 
-From the random forest regressor, we achieved an R-squared value from a testing set of about 0.95 which was suspiciously high.  Hence, we also calculated the "adjusted" R-squared value which penalizes the original R-squared value for having excess features but even after incorporating the adjustment formula, the numerical difference from the original R-squared value was neglible.  Finally, we ran an additional calculation to determine the mean squared error which resulted in a value of about 2983.10.  In addition, this model's mean absolute error was calculated which suggests that the price prediction is off by about $53.86 on average.
+From the initial random forest regressor, we achieved an R-squared value from a testing set of about 0.96 which was suspiciously high.  Hence, we also calculated the "adjusted" R-squared value which penalizes the original R-squared value for having excess features but even after incorporating the adjustment formula, the numerical difference from the original R-squared value was neglible.  Finally, we ran an additional calculation to determine the mean squared error which resulted in a value of about 2983.10.  In addition, this model's mean absolute error was calculated which suggests that the price prediction is off by about $51.58 on average.
 
 To view this preliminary Random Forest Regressor model, follow the link below:
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/1_RFR_Baseline_test.ipynb">RF Regressor Model before feature selection</a>
@@ -60,7 +63,7 @@ The most updated version of our RFM can be viewed via this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Machine_Learning_Notebooks/200_Clean_Feat_Sel_and_Final_RFR.ipynb">RF Regressor Model after feature selection</a>
 
-We have used the default split between test and training datasets (25/75).  Because of the model overfitting, we also looked at the metric on a smaller "pruned" model which shows an improved but similar MSE between train and test but reduces the R2 to 86%.  So we clearly have some over-fitting going on that will looked at.  
+We have used the default split between test and training datasets (25/75).  Because of the model overfitting, we also looked at the metric on a smaller "pruned" model which shows an improved but similar MSE between train and test but reduces the R2 to 86%.  So we clearly have some over-fitting going on that needs to be explored.   
 
 For a more indepth discussion of the MLMs, follow this link:
 
@@ -103,7 +106,7 @@ Following the initial baseline tests, our group observed that the addition of th
 
 
 ## Model Benefits and Limitations:
-As shown above, the Random Forest Regressor performed the best under these controlled conditions and, consequently, was chosen as our model basis.  Of course, all of these model appear limited in their ability to predict the target with extreme accuracy.  Nevertheless, the airbnb data itself had many inconsistencies and Random Forest Regressor demonstrated its prowess above the competitors.  This may be due to the fact that one benefit of this type of ensemble-based model is that it can fare quite well against over-fitting.
+As shown above, the Random Forest Regressor performed the best under these controlled conditions and, consequently, was chosen as our model basis.  Of course, all of these models appear limited in their ability to predict the target with extreme accuracy.  Nevertheless, the airbnb data itself has many inconsistencies and Random Forest Regressor demonstrated its prowess above the competitors.  This may be due to the fact that one benefit of this type of ensemble-based model is that it can fare quite well against over-fitting.
 
 ## Feature Reduction:
 
@@ -129,7 +132,7 @@ The link to our requirements file is
 
 
 
-- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/Flask_Setup/requirements.txt">Requirements</a>
+- <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/requirements.txt">Requirements</a>
 
 
 ## Presentation
