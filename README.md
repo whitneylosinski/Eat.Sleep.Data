@@ -110,13 +110,13 @@ As shown above, the Random Forest Regressor performed the best under these contr
 
 ## Feature Reduction:
 
-After the second round of baseline model tests which allowed us to select random forest regression as the basis of our model, we were still left with 265 features for predicting our target value of price.  Hence, we employed a final feature reduction step to rank the relative "importance" of each feature in order to determine the best predictors of our target and, thus, reduce the number of features accordingly.  This, in turn, would allow a user in our web app to be able to select from a more reasonably condensed version of features to predict the price.  Specifically, we chose to employ the Scikit-learn's Permutation Feature Importance method as it is considered less prone to over-valuing low importance features when a model is prone to over-fitting. The permutation method does this by randomizing each feature and measuring the error of the model before and after to measure importance.  In short, since our model had already shown signs of overfitting, the permutation method was deemed a good choice.  The results from the feature selection offered the following top twelve columns ranked by importance:
+After the second round of baseline model tests which allowed us to select random forest regression as the basis of our model, we were still left with 265 features for predicting our target value of price.  Hence, we employed a final feature reduction step to rank the relative "importance" of each feature in order to determine the best predictors of our target and, thus, reduce the number of features accordingly.  This, in turn, would allow a user in our web app to be able to select from a more reasonably condensed version of features to predict the price.  Specifically, we chose to employ the Scikit-learn's Permutation Feature Importance method as it is considered less prone to over-valuing low importance features when a model is prone to over-fitting. The permutation method does this by randomizing each feature and measuring the error of the model before and after to measure importance.  In short, since our model had already shown signs of overfitting, the permutation method was deemed a good choice.  The results from the feature selection offered the following top ten columns ranked by importance:
 
-![Top 12](PNG/../PNGs/top_12.png)
+![Top 10](PNGs/featureimportance10.png)
 
 ## Random Forest Regressor Model Results:
 
-By re-running the random forest regressor on these top twelve features alone, the model was able to obtain a mean absolute value of 57.66.  This indicates that our model is currently able to predict our target with some accuracy but is, on average, off by about $57.66.   Nevertheless, this current result provides a working model for our dynamic website.
+By re-running the random forest regressor on these top ten features alone, the model was able to obtain a mean absolute value of 57.57.  This indicates that our model is currently able to predict our target with some accuracy but is, on average, off by about $57.57.   Nevertheless, this current result provides a working model for our dynamic website.
 
 ## Communication Protocols:
 Our team is using the following mediums for communication purposes:
