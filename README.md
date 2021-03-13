@@ -118,7 +118,7 @@ After the second round of baseline model tests which allowed us to select random
 
 By re-running the random forest regressor on these top ten features alone, the model was able to obtain a mean absolute value of 57.57.  Deep learning models were also tested once more but the RFR still produced slightly better results.  This indicates that our best model remained the Random Forest Regressor and is currently able to predict our target with some accuracy but is, on average, off by about $57.57.   Nevertheless, this current result provides a working model for our dynamic website.
 
-![Final Model Comparison](PNGs/)
+![Final Model Comparison](PNGs/finalcomparisonRFRvsDeepNN.png)
 
 ## Communication Protocols:
 Our team is using the following mediums for communication purposes:
