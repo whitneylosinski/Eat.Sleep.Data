@@ -59,7 +59,7 @@ To view this preliminary Random Forest Regressor model, follow the link below:
 
 Following these two baseline tests, the group collaborated on producing a multi-collinearity matrix which revealed numerous variables in the dataset with significantly high collinearity.  With the aid of this matrix, we reduced some variables with bucketing and reran the models for only slight improvement. Additional study by looking at metrics separately on the test versus training datasets has revealed that there is a significant degree of "overfitting" being done by the RF model.   
 
-The most updated version of our RFM can be viewed via this link:
+To view this version of the Random Forest Regressor model follow this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Machine_Learning_Notebooks/200_Clean_Feat_Sel_and_Final_RFR.ipynb">RF Regressor Model after feature selection</a>
 
