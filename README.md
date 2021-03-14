@@ -33,7 +33,7 @@ Looking at the wide variety of data available, the team is interested in explori
 Click the following link to see a detailed description of the data sources being using for the project.  Additional information about our data exploration can be found in the project proposal above.
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/ETL">Data Source and Exploration</a>
 
-## Drafts of Machine Learning Model:
+## First Round Drafts for Comparing Machine Learning Models:
 Our preliminary model testing before the feature reduction process included two separate tests.  Our first pass at an MLM used a linearRegressor model with multiple variables, thus becoming multiple regression.  A description and link to viewing this model can be found here:
 
 - <a href= "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Machine_Learning_Notebooks/000_Baseline_Linear_Regression.ipynb">MLR Model</a>
