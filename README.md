@@ -63,9 +63,9 @@ To view this version of the Random Forest Regressor model follow this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/blob/main/Machine_Learning_Notebooks/200_Clean_Feat_Sel_and_Final_RFR.ipynb">RF Regressor Model after feature selection</a>
 
-We have used the default split between test and training datasets (25/75).  Because of the model overfitting, we also looked at the metric on a smaller "pruned" model which shows an improved but similar MSE between train and test but reduces the R2 to 86%.  So we clearly have some over-fitting going on that needs to be explored.   
+We have used the default split between test and training datasets (25/75).  Because of the model overfitting, we also looked at the metric on a smaller "pruned" model which shows an improved but similar MSE between train and test but reduces the R2 to 86%.  So we appeared to have some over-fitting occurring in our model and continued to investigate how to improve upon this and to further remove outliers.
 
-For a more indepth discussion of the MLMs, follow this link:
+For a more in-depth discussion of the Machine Learning Models, follow this link:
 
 - <a href = "https://github.com/whitneylosinski/Eat.Sleep.Data/wiki/Machine-Learning-Model-Development">MLM (wiki link)</a>
 
